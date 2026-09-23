@@ -1,6 +1,6 @@
 # Claude Knowledge Pack
 
-A private, version-controlled knowledge and workflow pack for Claude-related work across Claude Code, Codex, and Gemini CLI.
+A version-controlled knowledge and workflow pack for Claude-related work across Claude Code, Codex, and Gemini CLI.
 
 ## Design
 
@@ -42,7 +42,7 @@ claude-knowledge/
 After this repository has a GitHub URL:
 
 ```bash
-python scripts/bootstrap.py --repo-url https://github.com/YOUR_ACCOUNT/claude-knowledge.git
+python scripts/bootstrap.py --repo-url https://github.com/atsushi-matsuoka/claude-knowledge.git
 ```
 
 The bootstrapper clones or fast-forwards the repository and installs symlinks (copy fallback on platforms where symlinks are unavailable) into:
