@@ -1,0 +1,54 @@
+name: source-watch
+
+on:
+  schedule:
+    # 00:30 UTC = 09:30 JST, first day of each month
+    - cron: '30 0 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check official sources
+        id: watch
+        continue-on-error: true
+        run: |
+          python scripts/check_sources.py --update --report /tmp/source-watch-report.md
+          cp /tmp/source-watch-report.md source-watch-report.md
+      - name: Commit status snapshot
+        run: |
+          if git diff --quiet -- sources/source-status.json; then
+            echo "No status changes to commit"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add sources/source-status.json
+            git commit -m "chore: refresh source status"
+            git push
+          fi
+      - name: Open or update review issue when fingerprints changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if grep -q '^Changed fingerprints: 0$' source-watch-report.md; then
+            exit 0
+          fi
+          title="Claude knowledge source changes detected"
+          existing=$(gh issue list --state open --search "$title in:title" --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body-file source-watch-report.md
+          else
+            gh issue create --title "$title" --body-file source-watch-report.md
+          fi
+      - name: Fail only on fetch errors
+        if: steps.watch.outcome == 'failure'
+        run: exit 1
