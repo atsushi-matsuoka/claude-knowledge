@@ -1,4 +1,85 @@
 {
-  "generated_at": null,
-  "sources": {}
+  "generated_at": "2026-09-23T09:51:28.834894+00:00",
+  "sources": {
+    "anthropic-agent-skills-overview": {
+      "ok": true,
+      "status": 200,
+      "final_url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview",
+      "etag": null,
+      "last_modified": null,
+      "sha256": "02c6374e9686a182f4a8bb7eecd9d271bde50f9089720db1a8ba939890647fc5",
+      "checked_at": "2026-09-23T09:51:28.834894+00:00",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview"
+    },
+    "anthropic-claude-api-skill": {
+      "ok": true,
+      "status": 200,
+      "final_url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/claude-api-skill",
+      "etag": null,
+      "last_modified": null,
+      "sha256": "59d0c72d8c43c857f4092dae300725828536935771e164bbf9c1634f28b438a2",
+      "checked_at": "2026-09-23T09:51:28.834894+00:00",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/claude-api-skill"
+    },
+    "anthropic-claude-code-features": {
+      "ok": true,
+      "status": 200,
+      "final_url": "https://code.claude.com/docs/en/features-overview",
+      "etag": null,
+      "last_modified": null,
+      "sha256": "1b1697e0cc542e46b8181c5efc5422b137d969c883f5b1fa4c3cfacad10ba1bd",
+      "checked_at": "2026-09-23T09:51:28.834894+00:00",
+      "url": "https://code.claude.com/docs/en/features-overview"
+    },
+    "anthropic-claude-directory": {
+      "ok": true,
+      "status": 200,
+      "final_url": "https://code.claude.com/docs/en/claude-directory",
+      "etag": null,
+      "last_modified": null,
+      "sha256": "976c4f9c00e67c83b56893295c4e8b35fc077e89ce570e4beb625e3f46d9c676",
+      "checked_at": "2026-09-23T09:51:28.834894+00:00",
+      "url": "https://code.claude.com/docs/en/claude-directory"
+    },
+    "openai-build-skills": {
+      "ok": true,
+      "status": 200,
+      "final_url": "https://learn.chatgpt.com/docs/build-skills",
+      "etag": "\"2a374d2b1b8d37c9c0184c6635ac3692\"",
+      "last_modified": "Wed, 23 Sep 2026 07:04:20 GMT",
+      "sha256": "c750457de2d328d4371853a4752da95f164568cd192b41fc885e44718b7974ca",
+      "checked_at": "2026-09-23T09:51:28.834894+00:00",
+      "url": "https://learn.chatgpt.com/docs/build-skills"
+    },
+    "openai-astra-skills-guidance": {
+      "ok": true,
+      "status": 200,
+      "final_url": "https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra",
+      "etag": "\"3be89eb29c7ddcc7ba89213b8ce0bbb9\"",
+      "last_modified": "Wed, 23 Sep 2026 07:04:54 GMT",
+      "sha256": "3e94d7a9a1625b7bc4f87ef316ab757e276f0534cba6ef3b041f5eca321ad92d",
+      "checked_at": "2026-09-23T09:51:28.834894+00:00",
+      "url": "https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra"
+    },
+    "google-gemini-skills": {
+      "ok": true,
+      "status": 200,
+      "final_url": "https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/skills.md",
+      "etag": "W/\"a99b20ef06acb0b142422a2c397d9838\"",
+      "last_modified": null,
+      "sha256": "3c23e7eb995b1f6dbbd2e63cad41fd83d0d548b810442b5ef8d8053ab3b0b0ab",
+      "checked_at": "2026-09-23T09:51:28.834894+00:00",
+      "url": "https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/skills.md"
+    },
+    "google-gemini-context": {
+      "ok": true,
+      "status": 200,
+      "final_url": "https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/gemini-md.md",
+      "etag": "W/\"c0061d85b593a8113938c499885d99ca\"",
+      "last_modified": null,
+      "sha256": "b018c585910125ba085219de8c53f09779ec01631a14b4de1245637de30b90e2",
+      "checked_at": "2026-09-23T09:51:28.834894+00:00",
+      "url": "https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/gemini-md.md"
+    }
+  }
 }
