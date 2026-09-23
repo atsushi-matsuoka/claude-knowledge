@@ -12,6 +12,7 @@ import argparse, os, shutil, subprocess, sys
 from pathlib import Path
 
 SKILL_NAME = "claude-stack"
+LEGACY_SKILL_NAMES = ("sonnet-stack",)
 DEFAULT_DEST = Path.home()/".local"/"share"/"claude-knowledge"
 
 
@@ -60,6 +61,22 @@ def install_link(source: Path, target: Path) -> None:
         print(f"Symlink unavailable; copied {source} -> {target}")
 
 
+def remove_legacy_links(dest: Path) -> None:
+    for legacy in LEGACY_SKILL_NAMES:
+        old_source = (dest/"skills"/legacy).resolve(strict=False)
+        for target in (
+            Path.home()/".claude"/"skills"/legacy,
+            Path.home()/".agents"/"skills"/legacy,
+        ):
+            if target.is_symlink():
+                resolved = target.resolve(strict=False)
+                if resolved == old_source:
+                    target.unlink()
+                    print(f"Removed legacy link {target}")
+            elif target.exists():
+                print(f"Legacy path still exists and was not removed automatically: {target}")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--repo-url", default=os.environ.get("CLAUDE_KNOWLEDGE_REPO"))
@@ -88,6 +105,7 @@ def main() -> int:
     # Codex USER scope. Gemini CLI also supports ~/.agents/skills as an alias.
     install_link(skill, Path.home()/".agents"/"skills"/SKILL_NAME)
 
+    remove_legacy_links(dest)
     print("Installed. Restart/reload your local agent if it does not discover the skill immediately.")
     return 0
 
