@@ -53,6 +53,10 @@ The bootstrapper clones or fast-forwards the repository and installs symlinks (c
 
 Re-run the command at any time to refresh. The skill itself also has a lightweight `ensure_fresh.py` helper that local agents may run when the local checkout is stale.
 
+### Migration from the old name
+
+Version 0.1.1 renamed the skill from `sonnet-stack` to `claude-stack`. The bootstrapper removes legacy symlinks created by this repository when it can verify their target. It does not automatically delete ordinary directories or unrelated files with the old name.
+
 ## Updating knowledge
 
 1. Put Academy learning notes in Google Drive or `academy-notes/inbox/`.
