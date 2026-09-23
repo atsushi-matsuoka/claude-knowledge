@@ -1,0 +1,4 @@
+interface:
+  display_name: "Claude Ecosystem Guide"
+  short_description: "Current Claude/Anthropic workflows, routing, and cross-agent guidance"
+  default_prompt: "Use the Claude ecosystem knowledge pack for this task, verify volatile facts against current first-party Anthropic docs when possible, and distinguish claude.ai, Claude Code, and Claude API clearly."

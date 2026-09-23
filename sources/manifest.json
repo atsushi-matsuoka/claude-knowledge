@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "last_curated": "2026-09-23",
+  "sources": [
+    {
+      "id": "anthropic-agent-skills-overview",
+      "vendor": "anthropic",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview",
+      "purpose": "Agent Skills architecture, surfaces, constraints",
+      "volatility": "medium",
+      "review_days": 30
+    },
+    {
+      "id": "anthropic-claude-api-skill",
+      "vendor": "anthropic",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/claude-api-skill",
+      "purpose": "Official bundled Claude API skill and scope",
+      "volatility": "high",
+      "review_days": 14
+    },
+    {
+      "id": "anthropic-claude-code-features",
+      "vendor": "anthropic",
+      "url": "https://code.claude.com/docs/en/features-overview",
+      "purpose": "CLAUDE.md versus skills and Claude Code extension surfaces",
+      "volatility": "high",
+      "review_days": 14
+    },
+    {
+      "id": "anthropic-claude-directory",
+      "vendor": "anthropic",
+      "url": "https://code.claude.com/docs/en/claude-directory",
+      "purpose": "Claude Code project/user configuration layout",
+      "volatility": "high",
+      "review_days": 14
+    },
+    {
+      "id": "openai-build-skills",
+      "vendor": "openai",
+      "url": "https://learn.chatgpt.com/docs/build-skills",
+      "purpose": "Codex/ChatGPT Agent Skills discovery and local paths",
+      "volatility": "medium",
+      "review_days": 30
+    },
+    {
+      "id": "openai-astra-skills-guidance",
+      "vendor": "openai",
+      "url": "https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra",
+      "purpose": "Avoiding excessive prompt/skill scaffolding with Astra",
+      "volatility": "medium",
+      "review_days": 60
+    },
+    {
+      "id": "google-gemini-skills",
+      "vendor": "google",
+      "url": "https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/skills.md",
+      "purpose": "Gemini CLI Agent Skills support and .agents alias",
+      "volatility": "medium",
+      "review_days": 30
+    },
+    {
+      "id": "google-gemini-context",
+      "vendor": "google",
+      "url": "https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/gemini-md.md",
+      "purpose": "GEMINI.md persistent context behavior",
+      "volatility": "medium",
+      "review_days": 30
+    }
+  ]
+}

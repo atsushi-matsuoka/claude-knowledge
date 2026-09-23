@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.venv/
+sources/source-status.local.json
+academy-notes/inbox/private/
