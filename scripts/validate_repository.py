@@ -5,12 +5,12 @@ from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
 errors=[]
-skill=ROOT/"skills"/"sonnet-stack"/"SKILL.md"
-if not skill.exists(): errors.append("Missing skills/sonnet-stack/SKILL.md")
+skill=ROOT/"skills"/"claude-stack"/"SKILL.md"
+if not skill.exists(): errors.append("Missing skills/claude-stack/SKILL.md")
 else:
     t=skill.read_text()
     if not t.startswith("---\n"): errors.append("SKILL.md must start with YAML frontmatter")
-    if "\nname: sonnet-stack\n" not in t: errors.append("SKILL.md name mismatch")
+    if "\nname: claude-stack\n" not in t: errors.append("SKILL.md name mismatch")
     m=re.search(r"\ndescription:\s*(.+)\n---", t, re.S)
     if not m: errors.append("SKILL.md description missing")
     elif len(m.group(1).strip())>1024: errors.append("SKILL.md description exceeds 1024 chars")

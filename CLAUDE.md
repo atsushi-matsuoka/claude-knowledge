@@ -2,8 +2,8 @@
 
 This repository maintains a cross-agent knowledge pack about the Claude ecosystem.
 
-- Keep this file short; task-specific detail belongs in `skills/sonnet-stack/`.
-- Use the `sonnet-stack` skill for Claude ecosystem maintenance tasks.
+- Keep this file short; task-specific detail belongs in `skills/claude-stack/`.
+- Use the `claude-stack` skill for Claude ecosystem maintenance tasks.
 - Prefer official Anthropic documentation over remembered product facts.
 - Use the bundled `claude-api` skill for detailed Claude API/SDK implementation questions instead of duplicating API docs here.
 - Academy notes are curriculum input. Verify volatile facts against current official docs before promoting them into references.

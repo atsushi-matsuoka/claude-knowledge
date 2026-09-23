@@ -11,7 +11,7 @@ from __future__ import annotations
 import argparse, os, shutil, subprocess, sys
 from pathlib import Path
 
-SKILL_NAME = "sonnet-stack"
+SKILL_NAME = "claude-stack"
 DEFAULT_DEST = Path.home()/".local"/"share"/"claude-knowledge"
 
 

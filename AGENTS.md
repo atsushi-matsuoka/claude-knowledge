@@ -2,7 +2,7 @@
 
 This repository is a knowledge-and-workflow pack, not an application.
 
-- Use the `sonnet-stack` skill when editing Claude/Anthropic knowledge or workflows.
+- Use the `claude-stack` skill when editing Claude/Anthropic knowledge or workflows.
 - Keep `SKILL.md` concise. Put detailed or volatile material in `references/`.
 - Prefer current first-party Anthropic documentation over saved summaries when they conflict.
 - Do not duplicate the full Anthropic API reference; Claude Code already bundles Anthropic's `claude-api` skill.

@@ -12,7 +12,7 @@ A version-controlled knowledge and workflow pack for Claude-related work across 
 
 ## What this pack is for
 
-Use the `sonnet-stack` skill for tasks involving Anthropic Claude, Claude Code, claude.ai, Claude API, Agent Skills, MCP with Claude, model selection, prompting practices, or cross-agent workflows where Claude is one of the participants.
+Use the `claude-stack` skill for tasks involving Anthropic Claude, Claude Code, claude.ai, Claude API, Agent Skills, MCP with Claude, model selection, prompting practices, or cross-agent workflows where Claude is one of the participants.
 
 The pack does **not** try to replace Anthropic's official `claude-api` skill. Claude Code already bundles that skill for API/SDK details. This pack focuses on product-surface distinctions, Academy-derived knowledge, workflow design, cross-agent coordination, and freshness policy.
 
@@ -25,7 +25,7 @@ claude-knowledge/
 ├── GEMINI.md
 ├── curriculum/
 ├── academy-notes/
-├── skills/sonnet-stack/
+├── skills/claude-stack/
 │   ├── SKILL.md
 │   ├── agents/openai.yaml
 │   ├── references/
@@ -47,9 +47,9 @@ python scripts/bootstrap.py --repo-url https://github.com/atsushi-matsuoka/claud
 
 The bootstrapper clones or fast-forwards the repository and installs symlinks (copy fallback on platforms where symlinks are unavailable) into:
 
-- Claude Code: `~/.claude/skills/sonnet-stack`
-- Codex: `~/.agents/skills/sonnet-stack`
-- Gemini CLI: the same `~/.agents/skills/sonnet-stack` path, which Gemini CLI supports as an interoperable alias
+- Claude Code: `~/.claude/skills/claude-stack`
+- Codex: `~/.agents/skills/claude-stack`
+- Gemini CLI: the same `~/.agents/skills/claude-stack` path, which Gemini CLI supports as an interoperable alias
 
 Re-run the command at any time to refresh. The skill itself also has a lightweight `ensure_fresh.py` helper that local agents may run when the local checkout is stale.
 

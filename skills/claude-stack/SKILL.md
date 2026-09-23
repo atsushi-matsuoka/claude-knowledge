@@ -1,9 +1,9 @@
 ---
-name: sonnet-stack
+name: claude-stack
 description: Use for tasks involving Anthropic Claude, claude.ai, Claude Code, Claude API, Anthropic models, Agent Skills, MCP with Claude, Claude prompting practices, or workflows coordinating Claude with Codex/ChatGPT or Gemini. Use it to distinguish product surfaces, choose the right Claude workflow, consult current official Anthropic sources for volatile facts, and apply this repository's Academy-derived practices. Do not use it for general coding or unrelated AI questions.
 ---
 
-# Sonnet Stack
+# Claude Stack
 
 Treat this skill as a routing and workflow layer for Claude-related work.
 
