@@ -1,6 +1,9 @@
 name: source-watch
 
 on:
+  push:
+    paths:
+      - '.github/workflows/source-watch.yml'
   schedule:
     # 00:30 UTC = 09:30 JST, first day of each month
     - cron: '30 0 1 * *'
