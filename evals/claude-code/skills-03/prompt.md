@@ -6,4 +6,4 @@ timeout_seconds: 300
 allowed_tools: [Read, Glob, Grep, Skill]
 ---
 
-Can Gemini CLI use the same Agent Skill directory?
+Can Gemini CLI use the same Agent Skill directory as Codex for my claude-knowledge skill?

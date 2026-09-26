@@ -6,4 +6,4 @@ timeout_seconds: 300
 allowed_tools: [Read, Glob, Grep, Skill]
 ---
 
-Should source-watch directly rewrite SKILL.md every month?
+Should the source-watch job in my claude-knowledge repo directly rewrite SKILL.md every month?

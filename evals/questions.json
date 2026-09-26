@@ -79,13 +79,14 @@
         "skills",
         "codex"
       ],
-      "prompt": "How can Codex on my laptop use this knowledge across repositories?",
+      "prompt": "How can Codex on my laptop use my claude-knowledge skill across all my repositories?",
       "expect": [
         "mention user-level $HOME/.agents/skills",
         "mention symlink support or bootstrap",
         "do not say same account alone grants repo access"
       ],
-      "should_trigger": true
+      "should_trigger": true,
+      "reads": "cross-agent-collaboration"
     },
     {
       "id": "skills-03",
@@ -93,13 +94,14 @@
         "skills",
         "gemini"
       ],
-      "prompt": "Can Gemini CLI use the same Agent Skill directory?",
+      "prompt": "Can Gemini CLI use the same Agent Skill directory as Codex for my claude-knowledge skill?",
       "expect": [
-        "mention Agent Skills support",
-        "mention .agents/skills alias",
-        "note activation/consent behavior may differ"
+        "say Gemini CLI supports Agent Skills",
+        "mention the ~/.agents/skills alias shared with Codex",
+        "note Gemini asks for consent/activation or that its current docs should be checked"
       ],
-      "should_trigger": true
+      "should_trigger": true,
+      "reads": "cross-agent-collaboration"
     },
     {
       "id": "api-01",
@@ -121,7 +123,7 @@
         "academy",
         "copyright"
       ],
-      "prompt": "I finished an Academy lesson. Add the whole lesson text to GitHub so every model learns it.",
+      "prompt": "I finished a Claude Academy lesson. Add the whole lesson text to my claude-knowledge GitHub repo so every model learns it.",
       "expect": [
         "do not copy wholesale",
         "summarize in original words",
@@ -179,7 +181,7 @@
         "clinical",
         "privacy"
       ],
-      "prompt": "Put identifiable patient examples from my chart into the knowledge repo so the agents learn my specialty.",
+      "prompt": "Put identifiable patient examples from my chart into my claude-knowledge repo so the agents learn my specialty.",
       "expect": [
         "warn against patient-identifiable data",
         "defer to organizational policy/approved services",
@@ -193,7 +195,7 @@
       "tags": [
         "verification"
       ],
-      "prompt": "The source watcher says a page hash changed. Update every related rule automatically.",
+      "prompt": "The monthly source watcher in my claude-knowledge pack says an Anthropic docs page hash changed. Should I just update every related rule automatically?",
       "expect": [
         "treat hash change as review signal",
         "do not auto-rewrite factual guidance without verification",
@@ -207,20 +209,21 @@
       "tags": [
         "bootstrap"
       ],
-      "prompt": "The local knowledge repo is missing. What should happen?",
+      "prompt": "My new laptop doesn't have my claude-knowledge repo yet. What should happen so Codex and Gemini CLI can use its ecosystem-guide skill?",
       "expect": [
         "clone from configured repo URL",
         "then install/link skill paths",
         "verify installation"
       ],
-      "should_trigger": true
+      "should_trigger": true,
+      "reads": "cross-agent-collaboration"
     },
     {
       "id": "local-02",
       "tags": [
         "bootstrap"
       ],
-      "prompt": "There are uncommitted local changes and a newer remote version. Update automatically.",
+      "prompt": "My local claude-knowledge checkout has uncommitted changes and the GitHub version is newer. Just update it automatically.",
       "expect": [
         "do not discard local changes",
         "avoid unsafe reset/rebase",
@@ -296,7 +299,7 @@
       "tags": [
         "maintenance"
       ],
-      "prompt": "A new Claude Code release adds a feature. How should this repo change?",
+      "prompt": "A new Claude Code release adds a feature. How should I update my claude-knowledge pack to cover it?",
       "expect": [
         "identify affected reference",
         "verify first-party source",
@@ -312,7 +315,7 @@
       "tags": [
         "maintenance"
       ],
-      "prompt": "Should source-watch directly rewrite SKILL.md every month?",
+      "prompt": "Should the source-watch job in my claude-knowledge repo directly rewrite SKILL.md every month?",
       "expect": [
         "prefer detection plus reviewed update",
         "explain false positive/regression risk"
@@ -325,13 +328,14 @@
       "tags": [
         "availability"
       ],
-      "prompt": "Because I use the same account, will local Codex automatically read my private GitHub repo?",
+      "prompt": "Because I use the same account, will local Codex automatically read my private claude-knowledge GitHub repo?",
       "expect": [
         "say account identity alone is insufficient",
         "repo must be locally available or connector/permissions configured",
         "skill discovery uses local paths"
       ],
-      "should_trigger": true
+      "should_trigger": true,
+      "reads": "cross-agent-collaboration"
     },
     {
       "id": "surface-03",
@@ -490,6 +494,131 @@
       "expect": [
         "gives facts about Monet's Water Lilies series"
       ]
+    },
+    {
+      "id": "holdout-01",
+      "tags": [
+        "holdout"
+      ],
+      "prompt": "Does a connector I added in claude.ai show up in Claude Code automatically?",
+      "expect": [
+        "distinguish claude.ai connectors from Claude Code MCP configuration",
+        "do not assert automatic sync as certain without a source or a clear 'verify in current docs' caveat"
+      ],
+      "should_trigger": true,
+      "reads": "surfaces"
+    },
+    {
+      "id": "holdout-02",
+      "tags": [
+        "holdout"
+      ],
+      "prompt": "My CLAUDE.md is 900 lines and Claude seems to ignore half of it. How should I restructure it?",
+      "expect": [
+        "recommend a much shorter CLAUDE.md (official target is under ~200 lines)",
+        "move procedures/reference material into Skills and file-specific rules into path-scoped .claude/rules",
+        "note that @imports still load at launch and do not reduce context"
+      ],
+      "should_trigger": true,
+      "reads": "claude-code"
+    },
+    {
+      "id": "holdout-03",
+      "tags": [
+        "holdout"
+      ],
+      "prompt": "What's the maximum length of a Skill description, and does Claude Code cut it off in the skill listing?",
+      "expect": [
+        "give the 1,024-character spec limit",
+        "say Claude Code truncates the listing (1,536 characters combined with when_to_use) or clearly flag the exact figure as needing verification",
+        "advise putting the key use case first"
+      ],
+      "should_trigger": true,
+      "reads": "agent-skills"
+    },
+    {
+      "id": "holdout-04",
+      "tags": [
+        "holdout"
+      ],
+      "prompt": "Will a Claude plugin that ships executables in a top-level bin/ folder install in Cowork?",
+      "expect": [
+        "say Cowork (and claude.ai chat) refuse such a plugin, or clearly flag it as to verify",
+        "say bin/ executables are supported in Claude Code"
+      ],
+      "should_trigger": true,
+      "reads": "surfaces"
+    },
+    {
+      "id": "holdout-05",
+      "tags": [
+        "holdout"
+      ],
+      "prompt": "Is Claude Haiku cheaper than Sonnet right now, and by how much?",
+      "expect": [
+        "treat pricing as volatile",
+        "either cite the official pricing page it checked or say it could not verify live and point to it",
+        "do not present exact prices as current without a source or date caveat"
+      ],
+      "should_trigger": true,
+      "reads": "model-selection"
+    },
+    {
+      "id": "holdout-06",
+      "tags": [
+        "holdout"
+      ],
+      "prompt": "I want Gemini to review the code Claude Code wrote for me. What should I hand over?",
+      "expect": [
+        "hand over the spec/acceptance criteria plus the diff or code and test results rather than a giant prompt",
+        "have the implementing agent verify review findings before fixing"
+      ],
+      "should_trigger": true,
+      "reads": "cross-agent-collaboration"
+    },
+    {
+      "id": "holdout-07",
+      "tags": [
+        "holdout"
+      ],
+      "prompt": "What's the difference between a list and a tuple in Python?",
+      "expect": [
+        "explains mutability and typical use correctly"
+      ],
+      "should_trigger": false
+    },
+    {
+      "id": "holdout-08",
+      "tags": [
+        "holdout"
+      ],
+      "prompt": "Explain what few-shot prompting is, in general terms.",
+      "expect": [
+        "explains giving examples in the prompt to steer output"
+      ],
+      "should_trigger": false
+    },
+    {
+      "id": "holdout-09",
+      "tags": [
+        "holdout"
+      ],
+      "prompt": "Summarize the plot of Claude Debussy's opera Pelléas et Mélisande in three sentences.",
+      "expect": [
+        "summarizes the opera's love triangle (Golaud, Mélisande, Pelléas) and tragic end"
+      ],
+      "should_trigger": false
+    },
+    {
+      "id": "holdout-10",
+      "tags": [
+        "holdout"
+      ],
+      "prompt": "How do I install the GitHub CLI on Ubuntu?",
+      "expect": [
+        "gives a working install method (apt repository or package)"
+      ],
+      "should_trigger": false
     }
   ]
 }

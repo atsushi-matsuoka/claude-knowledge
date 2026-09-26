@@ -6,4 +6,4 @@ timeout_seconds: 300
 allowed_tools: [Read, Glob, Grep, Skill]
 ---
 
-Because I use the same account, will local Codex automatically read my private GitHub repo?
+Because I use the same account, will local Codex automatically read my private claude-knowledge GitHub repo?

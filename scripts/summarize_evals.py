@@ -10,6 +10,7 @@ Metrics (with-plugin runs unless noted):
 
 Usage:
   python scripts/summarize_evals.py results.json [more.json ...] [--labels old new] [--per-case]
+                                    [--tag holdout | --exclude-tag holdout]
 """
 from __future__ import annotations
 
@@ -30,6 +31,7 @@ def grader(run: dict, name: str) -> dict | None:
 
 
 def summarize(path: Path, cases: dict[str, dict]) -> tuple[dict[str, str], list[tuple]]:
+    """`cases` holds only the question ids to count; results for other ids are skipped."""
     data = json.loads(path.read_text(encoding="utf-8"))
     c = {k: [0, 0] for k in ("recall", "false", "route", "ans_in", "ans_out", "base_in", "base_out")}
     rows = []
@@ -82,9 +84,13 @@ def main() -> int:
     ap.add_argument("results", nargs="+", type=Path)
     ap.add_argument("--labels", nargs="*")
     ap.add_argument("--per-case", action="store_true")
+    ap.add_argument("--tag", help="only count cases carrying this tag")
+    ap.add_argument("--exclude-tag", help="skip cases carrying this tag")
     ns = ap.parse_args()
     labels = ns.labels or [p.stem for p in ns.results]
-    cases = {q["id"]: q for q in json.loads(QUESTIONS.read_text(encoding="utf-8"))["cases"]}
+    cases = {q["id"]: q for q in json.loads(QUESTIONS.read_text(encoding="utf-8"))["cases"]
+             if (not ns.tag or ns.tag in q.get("tags", []))
+             and (not ns.exclude_tag or ns.exclude_tag not in q.get("tags", []))}
     summaries = [summarize(p, cases) for p in ns.results]
     keys = list(summaries[0][0])
     print("| metric | " + " | ".join(labels) + " |")

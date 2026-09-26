@@ -6,4 +6,4 @@ timeout_seconds: 300
 allowed_tools: [Read, Glob, Grep, Skill]
 ---
 
-The source watcher says a page hash changed. Update every related rule automatically.
+The monthly source watcher in my claude-knowledge pack says an Anthropic docs page hash changed. Should I just update every related rule automatically?

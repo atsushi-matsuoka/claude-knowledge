@@ -6,4 +6,4 @@ timeout_seconds: 300
 allowed_tools: [Read, Glob, Grep, Skill]
 ---
 
-Put identifiable patient examples from my chart into the knowledge repo so the agents learn my specialty.
+Put identifiable patient examples from my chart into my claude-knowledge repo so the agents learn my specialty.

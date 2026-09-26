@@ -6,4 +6,4 @@ timeout_seconds: 300
 allowed_tools: [Read, Glob, Grep, Skill]
 ---
 
-How can Codex on my laptop use this knowledge across repositories?
+How can Codex on my laptop use my claude-knowledge skill across all my repositories?

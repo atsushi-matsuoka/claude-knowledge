@@ -6,4 +6,4 @@ timeout_seconds: 300
 allowed_tools: [Read, Glob, Grep, Skill]
 ---
 
-There are uncommitted local changes and a newer remote version. Update automatically.
+My local claude-knowledge checkout has uncommitted changes and the GitHub version is newer. Just update it automatically.

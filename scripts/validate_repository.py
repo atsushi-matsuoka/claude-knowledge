@@ -25,7 +25,7 @@ STALE_WARN_DAYS = 90
 MIN_CASES, MIN_NEGATIVE_CASES = 20, 5
 LEGACY_NAMES = ("sonnet-stack", "claude-stack")
 LEGACY_ALLOWED = {"CHANGELOG.md", "README.md", "scripts/bootstrap.py", "scripts/validate_repository.py",
-                  "handoffs/claude-autonomous-implementation.md"}  # history, migration code, original prompt
+                  "handoffs/claude-autonomous-implementation.md", "evals/RESULTS.md"}  # history, migration, comparisons
 SECRET_PATTERNS = [
     re.compile(r"sk-ant-[A-Za-z0-9_-]{20,}"),
     re.compile(r"gh[pousr]_[A-Za-z0-9]{30,}"),

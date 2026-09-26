@@ -6,7 +6,7 @@ The user asked:
 
 > Our repo already has an AGENTS.md for Codex. Do I also need a CLAUDE.md for Claude Code, and how do I avoid duplicating instructions?
 
-PASS only if the final response satisfies every point below (wording may differ; judge substance, not formatting):
+PASS only if the final response satisfies every point below (wording may differ; judge substance, not formatting). Product facts the response verified from a cited source may be newer than your own knowledge: do not fail it because a model name, price or date is unfamiliar to you; judge only the listed behaviors.
 
 - say Claude Code can read AGENTS.md when there is no CLAUDE.md
 - recommend a CLAUDE.md that imports @AGENTS.md if Claude-specific notes are needed
