@@ -1,0 +1,47 @@
+name: eval
+
+# Manual only: every run makes real model calls billed to ANTHROPIC_API_KEY.
+on:
+  workflow_dispatch:
+    inputs:
+      runs:
+        description: Runs per case per arm
+        default: '1'
+      max_cost_usd:
+        description: Cost ceiling (list-price estimate)
+        default: '15'
+
+permissions:
+  contents: read
+
+jobs:
+  eval:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run plugin evals
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then echo "ANTHROPIC_API_KEY secret not set"; exit 1; fi
+          npx -y @anthropic-ai/claude-code plugin eval . --trust-plugin --no-publish \
+            --runs "${{ inputs.runs }}" -j 4 --model claude-sonnet-5 --judge-model sonnet \
+            --threshold 0 --max-cost-usd "${{ inputs.max_cost_usd }}" --json results.json
+      - name: Summarize
+        if: always()
+        run: |
+          if [ -f results.json ]; then
+            python scripts/summarize_evals.py results.json --per-case >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: eval-results
+          path: results.json
+          if-no-files-found: ignore
