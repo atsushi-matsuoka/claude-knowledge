@@ -30,7 +30,7 @@ def main() -> int:
         print("Freshness check skipped: skill is not inside a Git checkout.")
         return 0
 
-    cache = Path.home()/".cache"/"claude-stack"/"last-sync.json"
+    cache = Path.home()/".cache"/"claude-knowledge"/"last-sync.json"
     cache.parent.mkdir(parents=True, exist_ok=True)
     if cache.exists() and not ns.force:
         try:

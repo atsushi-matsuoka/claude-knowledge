@@ -1,0 +1,12 @@
+{
+  "name": "matsuoka-knowledge",
+  "description": "Atsushi Matsuoka's reviewed knowledge packs for Claude.",
+  "owner": { "name": "Atsushi Matsuoka" },
+  "plugins": [
+    {
+      "name": "claude-knowledge",
+      "source": "./",
+      "description": "Routing and freshness guide for the Claude ecosystem."
+    }
+  ]
+}

@@ -12,3 +12,9 @@ When selecting a Claude model:
 4. Distinguish model capability from product availability: a model may exist but not be enabled on a particular plan, surface, region, or account.
 
 Do not infer availability from an old note. Verify it.
+
+## Sources
+
+- https://platform.claude.com/docs/en/about-claude/models/overview (models, IDs, context windows)
+- https://platform.claude.com/docs/en/about-claude/pricing (API pricing)
+- https://support.claude.com (plan usage limits and availability in claude.ai, Cowork and Claude Code)
