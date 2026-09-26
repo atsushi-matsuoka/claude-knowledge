@@ -116,6 +116,10 @@ class BootstrapTests(unittest.TestCase):
         self.home.mkdir()
         self.origin = copy_repo(self.tmp / "origin")
         git("init", "-q", "-b", "main", cwd=self.origin)
+        # A background auto-gc can repack objects while a local-path clone copies
+        # them; disable it and clone through file:// like a real remote.
+        git("config", "gc.auto", "0", cwd=self.origin)
+        git("config", "gc.autoDetach", "false", cwd=self.origin)
         git("add", "-A", cwd=self.origin)
         git("commit", "-qm", "init", cwd=self.origin)
         self.dest = self.tmp / "checkout"
@@ -126,7 +130,7 @@ class BootstrapTests(unittest.TestCase):
     def run_bootstrap(self, *extra: str) -> subprocess.CompletedProcess:
         env = {**os.environ, "HOME": str(self.home)}
         return subprocess.run([sys.executable, str(ROOT / "scripts" / "bootstrap.py"),
-                               "--repo-url", str(self.origin), "--dest", str(self.dest), *extra],
+                               "--repo-url", self.origin.as_uri(), "--dest", str(self.dest), *extra],
                               env=env, text=True, capture_output=True)
 
     def test_fresh_install_links_agents_path_only_by_default(self):
