@@ -1,6 +1,6 @@
 ---
 name: ecosystem-guide
-description: Claude/Anthropic ecosystem guide with dated, source-linked notes. Use when an answer depends on facts that change or differ by surface - whether a Skill, plugin, connector, setting or feature works in claude.ai chat, Cowork, Claude Code or the Claude API, and whether it syncs between them; where guidance belongs (CLAUDE.md, AGENTS.md, rules, Skills, subagents, hooks, MCP, plugins); current models, pricing, limits, plan availability or beta status; handing work between Claude and Codex/ChatGPT or Gemini; or updating the claude-knowledge pack. Not for general coding, stable concepts answerable from memory, other vendors' tools alone, or writing Claude API/SDK code (use the claude-api skill).
+description: Claude/Anthropic ecosystem guide with dated, source-linked notes. Consult it before answering from memory whenever the answer depends on facts that change or differ by surface - whether a Skill, plugin, connector, hook, setting or feature works in claude.ai chat, Cowork, Claude Code or the Claude API, and whether it syncs between them; where guidance belongs (CLAUDE.md, AGENTS.md, rules, Skills, subagents, hooks, MCP, plugins); current Claude models, pricing, limits, plan availability or beta status; which source to trust (official docs, Academy, forums); Claude prompting guidance; handing work between Claude and Codex/ChatGPT or Gemini, or sharing skills with them; and maintaining the claude-knowledge pack (Academy notes, source-watch alerts, evals, bootstrap). Not for general coding, stable concepts, other vendors' tools alone, or writing Claude API/SDK code (use the claude-api skill).
 metadata:
   version: 0.2.0
   source: https://github.com/atsushi-matsuoka/claude-knowledge
@@ -31,10 +31,10 @@ Read at most the references the question needs. Never load the whole folder.
 | Claude API / SDK work | [references/api-routing.md](references/api-routing.md) |
 | Model choice, pricing, limits, availability | [references/model-selection.md](references/model-selection.md) |
 | Prompting practice | [references/prompting.md](references/prompting.md) |
-| Claude working with Codex/ChatGPT or Gemini | [references/cross-agent-collaboration.md](references/cross-agent-collaboration.md) |
+| Claude working with Codex/ChatGPT or Gemini; installing this pack for them; account vs local access | [references/cross-agent-collaboration.md](references/cross-agent-collaboration.md) |
 | Clinical, patient or restricted data | [references/data-safety.md](references/data-safety.md) |
 | Which source wins; official doc entry points | [references/source-policy.md](references/source-policy.md) |
-| Updating this knowledge pack | [workflows/update-knowledge-pack.md](workflows/update-knowledge-pack.md) |
+| Updating this pack: Academy notes, source-watch alerts, new releases, evals | [workflows/update-knowledge-pack.md](workflows/update-knowledge-pack.md) |
 
 ## 3. Freshness protocol
 
@@ -42,15 +42,16 @@ Volatile: model names/IDs, pricing, context windows, usage or rate limits, plan 
 
 For a volatile claim:
 
-1. Note the `Last verified` date of the reference you read.
+1. Treat your own training and system-prompt knowledge like a saved note: useful, but dated. Note the `Last verified` date of the reference you read.
 2. If web access exists, check the official page (entry points in `references/source-policy.md`) and answer from it, citing the URL.
 3. If web access is unavailable, say so, give the saved claim with its `Last verified` date, and do not present it as guaranteed current.
-4. If the official page contradicts the saved note, follow the official page and tell the user the pack's note looks stale (in this repository, propose the fix via `workflows/update-knowledge-pack.md`).
+4. Only a current official source overrides a dated note; do not override it with inference from what you observe in your own session. If the official page contradicts the saved note, follow the official page and tell the user the pack's note looks stale (in this repository, propose the fix via `workflows/update-knowledge-pack.md`).
 
 Official pages can lag each other. Prefer the most specific, most recently updated page for the exact surface.
 
 ## 4. Answer standard
 
+- Answer the question first. If the user may also want it done, offer or ask for missing specifics after the answer.
 - Label what was verified now, what comes from a dated note, and what is inference.
 - Give short, actionable guidance; link the official page instead of restating it.
 - Do not claim an install, sync, upload, or command succeeded unless it was run and checked.

@@ -1,6 +1,6 @@
 # Claude ↔ Codex ↔ Gemini collaboration
 
-Last verified: 2026-09-23
+Last verified: 2026-09-26
 
 ## Default pattern
 
@@ -22,6 +22,25 @@ Avoid asking one model to generate a huge "perfect prompt" for another when a st
 
 The roles are not fixed by brand. Re-evaluate them on real tasks and eval results.
 
+## Sharing one skill with other agents
+
+The same Agent Skills folder works across hosts; only discovery paths differ.
+
+| Host | User-level path | Repo-level path | Notes |
+|---|---|---|---|
+| Codex | `$HOME/.agents/skills/<name>` | `.agents/skills/` from cwd up to repo root | symlinked skill folders are followed |
+| Gemini CLI | `~/.gemini/skills/` or the `~/.agents/skills/` alias | `.gemini/skills/` or `.agents/skills/` | asks for consent before activating a skill; `gemini skills link` / `install` also exist |
+| Claude | plugin marketplace or claude.ai account (see `surfaces.md`) | `.claude/skills/` | `~/.claude/skills/` reaches local Claude Code only |
+
+For this pack, `scripts/bootstrap.py` clones or fast-forwards the GitHub repo and links `~/.agents/skills/ecosystem-guide`, which serves Codex and Gemini CLI together. It never resets or discards local changes; a dirty checkout is left alone and reported.
+
+Being signed in to the same account does not give a local agent your private repositories. Discovery uses local paths: the repo must be cloned (with Git credentials) or reached through a configured connector.
+
 ## Shared knowledge
 
 Use GitHub as the reviewed source of truth. Local agent skill installations should point to or sync from that repository. Use Google Drive as a learning inbox and human-readable archive, not a competing canonical copy.
+
+## Sources
+
+- https://learn.chatgpt.com/docs/build-skills (Codex skill locations)
+- https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/skills.md (Gemini CLI skills)

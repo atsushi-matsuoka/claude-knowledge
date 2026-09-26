@@ -9,6 +9,7 @@ A Skill is a folder with `SKILL.md` plus optional scripts, references and assets
 - `name`: max 64 chars, lowercase letters, digits, hyphens; no XML tags; must not contain the reserved words `anthropic` or `claude`. Hosts that only read files (Claude Code, Codex, Gemini CLI) may accept such names, but claude.ai and API uploads reject them.
 - `description`: non-empty, max 1,024 chars, no XML tags, third person, states what it does and when to use it.
 - Portable frontmatter: `name`, `description`, `license`, `compatibility`, `metadata`, `allowed-tools`. Anything else is host-specific.
+- Host listing budgets are separate from the spec limit: Claude Code truncates `description` + `when_to_use` at 1,536 characters combined in its skill listing. Other hosts may truncate differently.
 
 ## Writing guidance
 
