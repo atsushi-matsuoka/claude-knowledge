@@ -142,7 +142,8 @@ class BootstrapTests(unittest.TestCase):
         self.assertTrue((self.home / ".claude" / "skills" / "ecosystem-guide" / "SKILL.md").exists())
 
     def test_legacy_links_into_checkout_are_removed(self):
-        self.run_bootstrap()
+        first = self.run_bootstrap()
+        self.assertEqual(first.returncode, 0, first.stdout + first.stderr)
         legacy = self.home / ".claude" / "skills" / "claude-stack"
         legacy.parent.mkdir(parents=True, exist_ok=True)
         legacy.symlink_to(self.dest / "skills" / "claude-stack", target_is_directory=True)
@@ -154,7 +155,8 @@ class BootstrapTests(unittest.TestCase):
         self.assertTrue(unrelated.exists(), "ordinary directories must never be deleted")
 
     def test_dirty_checkout_is_left_untouched(self):
-        self.run_bootstrap()
+        first = self.run_bootstrap()
+        self.assertEqual(first.returncode, 0, first.stdout + first.stderr)
         marker = self.dest / "LOCAL_EDIT.md"
         marker.write_text("local work\n")
         (self.origin / "NEW.md").write_text("upstream\n")
