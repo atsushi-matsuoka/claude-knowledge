@@ -1,14 +1,12 @@
-# Repository instructions for Codex
+# Repository instructions (shared by Claude Code, Codex, Gemini CLI)
 
-This repository is a knowledge-and-workflow pack, not an application.
+This repository is a knowledge-and-workflow pack about the Claude ecosystem, not an application. GitHub is the reviewed source of truth.
 
-- Use the `claude-stack` skill when editing Claude/Anthropic knowledge or workflows.
-- Keep `SKILL.md` concise. Put detailed or volatile material in `references/`.
-- Prefer current first-party Anthropic documentation over saved summaries when they conflict.
-- Do not duplicate the full Anthropic API reference; Claude Code already bundles Anthropic's `claude-api` skill.
-- Treat Academy notes as learning input, not canonical product documentation.
-- Do not copy course lessons or official docs wholesale. Write concise original summaries and retain source URLs.
-- For model names, pricing, rate/usage limits, feature availability, and beta status, verify the current official source before changing a factual claim.
-- Run `python scripts/validate_repository.py` after structural changes.
-- When source monitoring reports a change, update only claims that can be tied to current first-party evidence.
-- Never add patient-identifiable data, credentials, secrets, or organization-restricted clinical data.
+- The shared Agent Skill is `skills/ecosystem-guide/`. Follow its `workflows/update-knowledge-pack.md` when changing knowledge.
+- Keep `SKILL.md` short and free of dated facts. Put detail and anything volatile in `references/`, each with `Last verified:` and a `## Sources` list.
+- Current first-party Anthropic documentation beats saved notes and Academy material for product facts. Verify model names, pricing, limits, availability, beta status, commands and config paths before changing a claim.
+- Do not copy Academy lessons or official docs wholesale; write short original summaries with source URLs.
+- Do not mirror the Claude API reference; Anthropic's `claude-api` skill and the Platform docs cover it.
+- Eval cases live in `evals/questions.json`. After editing them run `python scripts/build_evals.py`.
+- After any change run `python scripts/validate_repository.py` and `python -m unittest discover -s tests`.
+- Never add patient-identifiable data, credentials, secrets, or organization-restricted material.

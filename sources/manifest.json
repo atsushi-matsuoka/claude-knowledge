@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_curated": "2026-09-23",
+  "last_curated": "2026-09-26",
   "sources": [
     {
       "id": "anthropic-agent-skills-overview",
@@ -8,7 +8,8 @@
       "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview",
       "purpose": "Agent Skills architecture, surfaces, constraints",
       "volatility": "medium",
-      "review_days": 30
+      "review_days": 30,
+      "fetch_url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview.md"
     },
     {
       "id": "anthropic-claude-api-skill",
@@ -16,15 +17,17 @@
       "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/claude-api-skill",
       "purpose": "Official bundled Claude API skill and scope",
       "volatility": "high",
-      "review_days": 14
+      "review_days": 14,
+      "fetch_url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/claude-api-skill.md"
     },
     {
       "id": "anthropic-claude-code-features",
       "vendor": "anthropic",
       "url": "https://code.claude.com/docs/en/features-overview",
-      "purpose": "CLAUDE.md versus skills and Claude Code extension surfaces",
+      "purpose": "Which extension mechanism to use and its context cost",
       "volatility": "high",
-      "review_days": 14
+      "review_days": 14,
+      "fetch_url": "https://code.claude.com/docs/en/features-overview.md"
     },
     {
       "id": "anthropic-claude-directory",
@@ -32,7 +35,8 @@
       "url": "https://code.claude.com/docs/en/claude-directory",
       "purpose": "Claude Code project/user configuration layout",
       "volatility": "high",
-      "review_days": 14
+      "review_days": 14,
+      "fetch_url": "https://code.claude.com/docs/en/claude-directory.md"
     },
     {
       "id": "openai-build-skills",
@@ -56,7 +60,8 @@
       "url": "https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/skills.md",
       "purpose": "Gemini CLI Agent Skills support and .agents alias",
       "volatility": "medium",
-      "review_days": 30
+      "review_days": 30,
+      "fetch_url": "https://raw.githubusercontent.com/google-gemini/gemini-cli/main/docs/cli/skills.md"
     },
     {
       "id": "google-gemini-context",
@@ -64,7 +69,81 @@
       "url": "https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/gemini-md.md",
       "purpose": "GEMINI.md persistent context behavior",
       "volatility": "medium",
-      "review_days": 30
+      "review_days": 30,
+      "fetch_url": "https://raw.githubusercontent.com/google-gemini/gemini-cli/main/docs/cli/gemini-md.md"
+    },
+    {
+      "id": "anthropic-claude-code-skills",
+      "vendor": "anthropic",
+      "url": "https://code.claude.com/docs/en/skills",
+      "purpose": "Skill locations, frontmatter, listing budget, claude.ai sync, Cowork/cloud behavior",
+      "volatility": "high",
+      "review_days": 14,
+      "fetch_url": "https://code.claude.com/docs/en/skills.md"
+    },
+    {
+      "id": "anthropic-claude-code-memory",
+      "vendor": "anthropic",
+      "url": "https://code.claude.com/docs/en/memory",
+      "purpose": "CLAUDE.md size/imports, rules, AGENTS.md interoperability",
+      "volatility": "high",
+      "review_days": 14,
+      "fetch_url": "https://code.claude.com/docs/en/memory.md"
+    },
+    {
+      "id": "anthropic-plugin-platform-support",
+      "vendor": "anthropic",
+      "url": "https://claude.com/docs/plugins/platform-support",
+      "purpose": "Plugin component support in chat, Cowork, Claude Code",
+      "volatility": "high",
+      "review_days": 14,
+      "fetch_url": "https://claude.com/docs/plugins/platform-support.md"
+    },
+    {
+      "id": "anthropic-plugin-evals",
+      "vendor": "anthropic",
+      "url": "https://code.claude.com/docs/en/plugin-evals",
+      "purpose": "claude plugin eval case and grader format",
+      "volatility": "high",
+      "review_days": 30,
+      "fetch_url": "https://code.claude.com/docs/en/plugin-evals.md"
+    },
+    {
+      "id": "anthropic-plugin-marketplaces",
+      "vendor": "anthropic",
+      "url": "https://code.claude.com/docs/en/plugins/create-marketplace",
+      "purpose": "marketplace.json format and install commands",
+      "volatility": "medium",
+      "review_days": 30,
+      "fetch_url": "https://code.claude.com/docs/en/plugins/create-marketplace.md"
+    },
+    {
+      "id": "anthropic-agent-skills-best-practices",
+      "vendor": "anthropic",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices",
+      "purpose": "Skill naming, description, size and evaluation guidance",
+      "volatility": "medium",
+      "review_days": 30,
+      "fetch_url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices.md"
+    },
+    {
+      "id": "anthropic-models-overview",
+      "vendor": "anthropic",
+      "url": "https://platform.claude.com/docs/en/about-claude/models/overview",
+      "purpose": "Current model names, IDs, context windows",
+      "volatility": "high",
+      "review_days": 14,
+      "fetch_url": "https://platform.claude.com/docs/en/about-claude/models/overview.md"
+    },
+    {
+      "id": "anthropic-pricing",
+      "vendor": "anthropic",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "purpose": "API pricing",
+      "volatility": "high",
+      "review_days": 14,
+      "fetch_url": "https://platform.claude.com/docs/en/about-claude/pricing.md"
     }
-  ]
+  ],
+  "notes": "fetch_url, when present, is what the watcher hashes (clean Markdown is far less noisy than rendered HTML). url is the human-facing page cited in references."
 }

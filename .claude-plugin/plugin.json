@@ -1,0 +1,12 @@
+{
+  "name": "claude-knowledge",
+  "version": "0.2.0",
+  "description": "Routing and freshness guide for the Claude ecosystem: surfaces (chat, Cowork, Claude Code, API), Skills/plugins/CLAUDE.md/MCP placement, volatile facts, and cross-agent handoffs.",
+  "author": {
+    "name": "Atsushi Matsuoka"
+  },
+  "repository": "https://github.com/atsushi-matsuoka/claude-knowledge",
+  "experimental": {
+    "evals": "evals/claude-code"
+  }
+}

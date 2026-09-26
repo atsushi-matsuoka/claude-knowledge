@@ -16,4 +16,10 @@ jobs:
         with:
           python-version: '3.12'
       - run: python scripts/validate_repository.py
+      - run: python -m unittest discover -s tests
       - run: python scripts/check_sources.py --no-network
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate plugin and marketplace manifests
+        run: npx -y @anthropic-ai/claude-code plugin validate .

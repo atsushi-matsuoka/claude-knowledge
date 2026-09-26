@@ -6,13 +6,19 @@ Safe properties:
 - fast-forward only when existing checkout is clean
 - never resets or discards changes
 - symlink when possible, copy as a fallback
+
+Targets:
+- ~/.agents/skills/<skill>  (Codex; Gemini CLI reads the same alias) - always
+- ~/.claude/skills/<skill>  (Claude Code personal skill) - only with --claude-code.
+  For Claude, prefer the plugin marketplace (README): it also reaches Cowork and
+  claude.ai chat, and installing both would list the skill twice.
 """
 from __future__ import annotations
 import argparse, os, shutil, subprocess, sys
 from pathlib import Path
 
-SKILL_NAME = "claude-stack"
-LEGACY_SKILL_NAMES = ("sonnet-stack",)
+SKILL_NAME = "ecosystem-guide"
+LEGACY_SKILL_NAMES = ("sonnet-stack", "claude-stack")
 DEFAULT_DEST = Path.home()/".local"/"share"/"claude-knowledge"
 
 
@@ -82,6 +88,8 @@ def main() -> int:
     ap.add_argument("--repo-url", default=os.environ.get("CLAUDE_KNOWLEDGE_REPO"))
     ap.add_argument("--dest", type=Path, default=DEFAULT_DEST)
     ap.add_argument("--skip-update", action="store_true", help="Use current checkout without git pull")
+    ap.add_argument("--claude-code", action="store_true",
+                    help="Also link ~/.claude/skills/%s (skip if you use the Claude plugin)" % SKILL_NAME)
     ns = ap.parse_args()
 
     dest = ns.dest.expanduser().resolve()
@@ -100,12 +108,14 @@ def main() -> int:
     if not (skill/"SKILL.md").exists():
         raise RuntimeError(f"Skill not found: {skill}")
 
-    # Claude Code personal skill.
-    install_link(skill, Path.home()/".claude"/"skills"/SKILL_NAME)
     # Codex USER scope. Gemini CLI also supports ~/.agents/skills as an alias.
     install_link(skill, Path.home()/".agents"/"skills"/SKILL_NAME)
+    if ns.claude_code:
+        install_link(skill, Path.home()/".claude"/"skills"/SKILL_NAME)
 
     remove_legacy_links(dest)
+    if not ns.claude_code:
+        print("Claude: install the plugin instead (see README), or re-run with --claude-code.")
     print("Installed. Restart/reload your local agent if it does not discover the skill immediately.")
     return 0
 
