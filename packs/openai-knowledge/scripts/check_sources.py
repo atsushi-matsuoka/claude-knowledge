@@ -7,6 +7,7 @@ import json
 import re
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.error import HTTPError
 from urllib.parse import urlsplit
 from urllib.request import HTTPRedirectHandler, Request, build_opener
 
@@ -48,14 +49,18 @@ def observe(manifest: dict, previous: dict, fetcher=fetch) -> dict:
     for src in manifest['sources']:
         old = previous.get('sources', {}).get(src['id'], {})
         row = {**old, 'url': src['url'], 'checked_at': now}
+        # An earlier HTTP failure must not describe a later successful/non-HTTP check.
+        row.pop('http_status', None)
         try:
             row['observed_sha256'] = fetcher(src['fetch_url'])
             row['ok'] = True
             row.pop('error', None)
         except (OSError, ValueError) as exc:
             row['ok'] = False
-            # Do not copy exception URLs/headers into a public report.
+            # Keep only a numeric status, never exception URLs, headers or bodies.
             row['error'] = type(exc).__name__
+            if isinstance(exc, HTTPError):
+                row['http_status'] = exc.code
         row['review_required'] = (not row['ok'] or not row.get('reviewed_sha256') or
                                   row.get('observed_sha256') != row.get('reviewed_sha256'))
         out['sources'][src['id']] = row
@@ -72,7 +77,8 @@ def render_report(state: dict, manifest: dict, root: Path = ROOT) -> str:
         cites = [str(p.relative_to(root)) for p in (root/'skills').rglob('*.md')
                  if src['url'] in p.read_text(encoding='utf-8')]
         label = 'FETCH FAILED' if not row['ok'] else 'REVIEW REQUIRED'
-        lines.append(f"- {label}: {src['id']} — {src['url']} — {', '.join(cites) or 'source ledger only'}")
+        detail = f" (HTTP {row['http_status']})" if not row['ok'] and 'http_status' in row else ''
+        lines.append(f"- {label}{detail}: {src['id']} — {src['url']} — {', '.join(cites) or 'source ledger only'}")
     lines.extend(['', f"Fetch failures: {sum(not r['ok'] for r in state['sources'].values())}",
                   f"Review signals: {sum(r['review_required'] for r in state['sources'].values())}"])
     return '\n'.join(lines) + '\n'
