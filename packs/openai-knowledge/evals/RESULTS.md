@@ -6,7 +6,7 @@ Unit tests exercise the code with synthetic data, safe temporary files and mocke
 
 Model candidates are unmeasured on the user's tasks. Academy learning remains partial as recorded in curriculum/academy-map.md. Account-level installation, model switching and host discovery are unconfirmed.
 
-## Verified implementation checks — 2026-09-28 JST
+## Previous initial implementation checks — 2026-09-28 JST
 
 Reviewed code head: `47ae31105a95013e482092fd70b8729842d77236`.
 The pack tree tested locally was `4a1b61b48907fb1329788988bf6bd64e832c9ede`,
@@ -18,7 +18,7 @@ obtained from the CI artifact and reproduced with Git after extraction.
 - GitHub validation matrix for Python 3.12 and 3.13: https://github.com/atsushi-matsuoka/claude-knowledge/actions/runs/36347176685
 - The parent Claude-pack validation also passed; its four pre-existing missing-Sources warnings are not fixes made by this pack.
 
-## Actual source retrieval, not a clean network pass
+## Previous 17-source retrieval (superseded below)
 
 Run: https://github.com/atsushi-matsuoka/claude-knowledge/actions/runs/36347174237
 
@@ -41,6 +41,53 @@ hashes. Initial review-required signals do not imply that all pages changed.
 
 No live model invocation, automatic model switch, runtime Skill activation,
 controlled output-quality comparison, or full Academy course/exercise completion
-was performed. The 32 routing/artifact cases and six outcome inputs are test
-specifications, not 38 passed live-model experiments. CI does not install these
+was performed. The initial 32 routing/artifact cases and six outcome inputs were test
+specifications, not 38 passed live-model experiments. The expanded suite is described below. CI does not install these
 Skills in the user's account. Scheduled Actions activate only after merge to main.
+
+## Academy survey expansion — 2026-09-28 JST
+
+Implementation head: `0bdc018fe8133ca05e766c3cecdce9de03c56841`.
+Before upload, the local tested pack Git tree matched the uploaded tree exactly:
+`8446f82fb3468de674e6ddb648d506badb3f31fe`.
+
+- Survey ledger: 30 Academy entries (course groups, series, sessions and resources, not 30 completed courses), seven developer supplements and seven source-to-procedure-to-probe mappings.
+- Twelve Academy entries have recorded body/selected-section coverage: seven articles, one transcript and four PDFs. One article's reading is carried forward from the initial PR rather than freshly repeated. None is claimed as a completed course, exercise or model experiment. Other records remain outlines, shells or unavailable attachments.
+- Added five practical references and 19 development evaluation specifications: 51 author-visible cases in total. The six synthetic downstream inputs are unchanged. The description and model-selection code/catalogue are unchanged; no new routing effectiveness claim.
+- `python scripts/audit_curriculum.py --render`: map generated; the subsequent audit passed. It validates record consistency, not whether learning truly occurred.
+- `python scripts/validate.py`: passed locally and in CI.
+- `python -m unittest discover -s tests -v`: 75 tests passed locally (54 existing plus 21 curriculum regressions); CI passed on Python 3.12 and 3.13.
+- `python scripts/check_sources.py --no-network`: 32-source configuration passed; no network requests in this command.
+- OpenAI validation: https://github.com/atsushi-matsuoka/claude-knowledge/actions/runs/36357361772
+- Parent validation: https://github.com/atsushi-matsuoka/claude-knowledge/actions/runs/36357361754
+
+### Expanded network observation
+
+Source run: https://github.com/atsushi-matsuoka/claude-knowledge/actions/runs/36357359083
+
+At `2026-09-27T23:03:05.922420+00:00`, the watcher obtained content from 30 of 32 sources.
+Two remained HTTP 403: `work-codex` (Help Center) and `learning-dev-harness`
+(OpenAI's harness-engineering article). The latter's public text was read via
+the browser; that is not a successful Actions fetch. The workflow remains
+failed, with its observation artifact retained. No access controls were bypassed,
+no sources removed to conceal failure, and no reviewed hashes fabricated.
+The committed source-status.json preserves these actual observations.
+
+The network monitor hashes registered web-page bodies only. Academy PDF
+attachments require separate inspection; unchanged wrapper pages do not prove
+unchanged attachments or complete lesson availability. New-course discovery and
+important access gaps are also explicit maintenance work, not guaranteed by hashing.
+
+### Remaining work and scope
+
+Public discovery is not an exhaustive authenticated catalogue. Formal course
+lesson bodies, API Bootcamp lessons and some Skill Lab attachments remain pending.
+Selected slide/transcript reading does not complete a course. Academy exercises
+and real-model activation/quality comparisons remain unexecuted. Independent
+final cases still need preparation before claiming empirical gains.
+
+The existing weekly maintenance task was expanded to rediscover catalogue/audience/series
+routes during the first weekly pass of each month and revisit important gaps,
+while preserving the unmerged-main guard, PR review and no unapproved paid calls.
+GitHub schedules and deployment remain inactive for this unmerged PR; no user
+account, existing personal Skill or parent Claude file was changed.
