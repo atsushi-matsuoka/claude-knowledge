@@ -6,6 +6,7 @@ on:
   push:
     paths:
       - 'packs/openai-knowledge/sources/manifest.json'
+      - 'packs/openai-knowledge/scripts/check_sources.py'
       - '.github/workflows/openai-knowledge-source-watch.yml'
 permissions:
   contents: read
