@@ -1,16 +1,20 @@
-# Learning provenance
+# Learning coverage is not model training
 
 Last verified: 2026-09-28
 
-The public Academy prompting article and the Work webinar resource guide were read as text. They informed task framing, iteration and bounded multi-step work. Videos, attached handouts and exercises were not executed. The Agents and Workflows course entry exposed only its outline/entry, not lesson bodies. Full Academy training is incomplete.
+The machine-readable learning record is `curriculum/academy-inventory.json`; its generated map is for maintenance, not routine context loading. The survey follows course, audience, community and relevant series routes. Public retrieval is incomplete and inconsistent across catalogues: no complete list of every Academy lesson is asserted.
 
-Developer documentation contributed prompt design, reasoning controls, exact output checks, evaluation and local Skill discovery. Indexed GPT-6 model-card text was available, while direct opens failed and the latest-model body disagreed with its index. Those claims are stored as dated candidates with explicit retrieval limitations. This does not show account access or suitability on the user's tasks.
+Statuses are intentionally separate. An indexed description or navigation shell is not lesson content. Read text, selected PDF pages and public transcript sections are identified with locators. Procedure/probe links show what was operationalized. A local synthetic test does not count as an Academy exercise; neither proves better model output. Completion or measured-effect claims require distinct evidence records.
 
-For new material record source, exact coverage, original application, tests, and separate read/exercised/measured statuses in curriculum/academy-map.md. Do not promote all rows to completed because a few documents were summarized. First-party product documentation wins over outdated educational examples for current parameters.
+New practical guidance uses selected Codex workshop slides, a public workflow transcript, data-analysis and research articles, plus explicit developer supplements. API Bootcamp lesson bodies and some exercise attachments remain pending. Conditional leadership/education/voice topics have a reason and revisit condition, not a declaration of irrelevance.
+
+PDF wrapper/deck numbering and dated installation examples conflict in places. Preserve both identities, consult current product documentation for implementations, and do not redistribute the slides. Only short original methods are stored. Learn broadly; retrieve narrowly.
+
+## Original probe
+
+A course page returns only navigation while an official catalogue describes lessons. Record shell-only and keep the course incomplete. Do not infer that the course is empty or unnecessary, and do not mark an independently written practice check as its completed exercise.
 
 ## Sources
 
-- https://academy.openai.com/public/clubs/work-users-ynjqu/resources/prompting
-- https://academy.openai.com/public/clubs/work-users-ynjqu/resources/get-started-with-chatgpt-work-webinar-resource-guide-2026-08-03
-- https://academy.openai.com/public/courses/agents-and-workflows-bieml
-- https://developers.openai.com/api/docs/guides/prompt-engineering
+- https://openai.com/index/harness-engineering/
+- https://learn.chatgpt.com/docs/build-skills

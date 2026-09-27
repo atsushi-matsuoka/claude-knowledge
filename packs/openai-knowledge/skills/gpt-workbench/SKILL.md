@@ -17,6 +17,11 @@ Optimize the completed result, not the length of the prompt or the amount of rea
 | Execute, delegate and review | [references/execution.md](references/execution.md) |
 | Evaluate a proposed improvement | [references/evaluation.md](references/evaluation.md) |
 | Concrete original examples | [references/examples.md](references/examples.md) |
+| Recurring work, approval gates and recovery | [references/agent-lifecycle.md](references/agent-lifecycle.md) |
+| Research evidence and retrieval failures | [references/research-retrieval.md](references/research-retrieval.md) |
+| Data definitions, joins and saved-file checks | [references/data-artifacts.md](references/data-artifacts.md) |
+| Substantial coding, context and regression checks | [references/coding-workflow.md](references/coding-workflow.md) |
+| Quality/cost/latency tradeoffs and conditional tuning | [references/optimization-ladder.md](references/optimization-ladder.md) |
 | Actual Academy/developer coverage | [references/provenance.md](references/provenance.md) |
 
 1. Extract the required outcome and consequential constraints. Inspect supplied evidence before asking; use reversible labeled defaults for nonblocking gaps.

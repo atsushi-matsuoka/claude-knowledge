@@ -17,6 +17,8 @@ Effort and model are different controls. Start with a reasonable supported effor
 
 For ambiguous tasks, prioritize a usable reversible first artifact over asking the user to select technical components. When tests expose a reasoning failure, raise effort or model for that step; for missing context, retrieve the necessary evidence instead. Keep candidate, selected, invoked and validated as separate recorded states.
 
+For optimization beyond initial routing, follow the optimization-ladder reference when needed. The current route.py tier rules are a conservative declared-task heuristic, not learned routing thresholds. Improving this method does not establish that a named model or effort setting is optimal.
+
 ## Sources
 
 - https://developers.openai.com/api/docs/models

@@ -2,6 +2,10 @@
 
 ## 0.1.0 - 2026-09-28
 
+- Expanded Academy discovery across audiences, courses, series and public attachments; retained incomplete access, numbering and catalogue conflicts with revisit reasons.
+- Added source-to-procedure-to-probe learning records and generated coverage audit.
+- Added five practical references for lifecycle, grounded research, data artifacts, coding and measured optimization; model effectiveness and Academy exercises remain unmeasured/unexecuted.
+
 - Initial isolated OpenAI product and performance pack; parent Claude skills unchanged.
 - Added surface-aware, quality-first model routing with explicit runtime eligibility and no model calls.
 - Converted retrieved Academy text and developer guidance into concise procedures and original examples.

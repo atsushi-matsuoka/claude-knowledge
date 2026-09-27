@@ -74,7 +74,8 @@ def render_report(state: dict, manifest: dict, root: Path = ROOT) -> str:
         row = state['sources'][src['id']]
         if not row['review_required']:
             continue
-        cites = [str(p.relative_to(root)) for p in (root/'skills').rglob('*.md')
+        documents = list((root/'skills').rglob('*.md')) + list((root/'curriculum').glob('*.json'))
+        cites = [str(p.relative_to(root)) for p in documents
                  if src['url'] in p.read_text(encoding='utf-8')]
         label = 'FETCH FAILED' if not row['ok'] else 'REVIEW REQUIRED'
         detail = f" (HTTP {row['http_status']})" if not row['ok'] and 'http_status' in row else ''

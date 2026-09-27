@@ -26,3 +26,13 @@ baseline unset even if an observation hash exists.
 The weekly maintenance task handles both this pack and the separate existing
 personal `optimize-model-prompt` Skill when it is actually accessible. Do not
 create a second overlapping schedule or assume that personal Skill was migrated.
+
+## Curriculum discovery and deepening
+
+During the first weekly maintenance pass of each month, rediscover the public course catalogue, audience/community routes and relevant API/Codex/agent series. Do not limit discovery to already registered URLs. Review unresolved core gaps on other weekly passes when a usable public body or authorized note becomes available. Inventory counts describe the surveyed set, not a complete authenticated catalogue.
+
+Maintain curriculum/academy-inventory.json: exact public source, priority and rationale, access coverage and read sections, unresolved gaps, and a concrete revisit action. Preserve catalogue/search discrepancies and duplicate wrapper/series identities. Never call unseen material unnecessary. Broad learning does not require loading the catalogue in every task.
+
+For a new learning unit, link actually read sources to the smallest original procedure and development probes. Developer supplements do not complete an Academy course. Selected PDF/transcript reading is not whole-video/whole-course completion. Keep exercise execution and model effects separately evidenced; failures retrieving attachments remain visible. Watch Academy wrapper URLs, and manually verify linked attachment identity/content when reviewing them; wrapper hashes alone cannot prove unchanged PDFs. Do not broaden the source fetch allowlist to arbitrary CDNs.
+
+After changing the ledger run python scripts/audit_curriculum.py --render and the full pack validation/tests. When adding watch sources, run the network watcher and retain actual successes/failures; never promote an uninspected observation hash to reviewed_sha256. Record curriculum gaps separately from mechanical validation success.

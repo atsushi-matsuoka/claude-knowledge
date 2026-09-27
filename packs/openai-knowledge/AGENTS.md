@@ -13,3 +13,5 @@ The goal is better completed work, not maximum tokens or an unconditional model 
 - Keep changes inside this pack and its two named OpenAI workflows. Do not edit parent skills, historical handoffs, existing personal skills, account settings or production systems.
 - Version this pack with VERSION, pack.json, both SKILL metadata.version fields and CHANGELOG. No automatic merge.
 - Never store patient-identifiable information, credentials, internal clinical records or organization-restricted data. Use synthetic examples.
+
+- Academy coverage is tracked in curriculum/academy-inventory.json. Update its generated map with scripts/audit_curriculum.py --render. Reading, operationalization, original local checks, Academy exercises and real-model effects are distinct; no completeness claim from public discovery alone.

@@ -7,6 +7,7 @@ from datetime import date, datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 from check_sources import check_url
+import audit_curriculum
 
 ROOT = Path(__file__).resolve().parents[1]
 ALLOWED = {'name', 'description', 'metadata', 'license', 'compatibility', 'allowed-tools'}
@@ -102,6 +103,7 @@ def validate(root: Path = ROOT) -> list[str]:
                 errors.append('possible secret: '+str(p.relative_to(root)))
     except (OSError, ValueError, KeyError, TypeError) as exc:
         errors.append('malformed pack: '+str(exc))
+    errors.extend(audit_curriculum.validate(root))
     return errors
 
 
