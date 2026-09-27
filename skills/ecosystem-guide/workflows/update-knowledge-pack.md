@@ -11,3 +11,13 @@
 9. For description or routing changes, run the Claude Code suite: `claude plugin eval . --trust-plugin --no-publish` (see README for a cheaper smoke run).
 10. Review the diff for lost negations, limits, surface distinctions, or uncertainty. Bump `version` in `.claude-plugin/plugin.json` and add a `CHANGELOG.md` entry.
 11. Open a reviewable PR; do not auto-merge knowledge changes.
+
+## Practice-layer additions
+
+- For task-craft, start from an actual failure or a retrieved educational section. Record source coverage and whether it was only an outline, read text, exercised material or a measured behavior.
+- Convert a learned principle into an original procedure, example and acceptance check. Do not add prose merely to enlarge the knowledge base.
+- Put dated practical guidance in task-craft references. Stable method application does not require a live fetch on every user task; version-specific product claims still do.
+- New task-craft cases in questions.json use `skill: task-craft`. Preserve the existing ecosystem-guide cases and untouched holdouts. Rebuild generated cases.
+- Separate activation/artifact grading from downstream task results. Follow evals/TASK_CRAFT.md; without a real model run report effect unmeasured. Never run paid evaluation automatically.
+- Keep every skill metadata.version, plugin.json version and top CHANGELOG entry aligned. New fetch_url entries require an actual baseline refresh; keep failed retrievals visible.
+- Do not edit historical handoffs, auto-merge, or claim a PR is installed on the user's accounts.

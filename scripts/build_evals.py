@@ -35,6 +35,8 @@ def skill_name() -> str:
         m = re.search(r"^name:\s*(\S+)\s*$", skill_md.read_text(encoding="utf-8"), re.M)
         if m:
             names.append(m.group(1))
+    if "ecosystem-guide" in names:
+        return "ecosystem-guide"
     if len(names) != 1:
         raise SystemExit(f"Expected exactly one skill under skills/, found {names}")
     return names[0]
@@ -91,6 +93,8 @@ def render_case(case: dict, skill: str) -> dict[str, str]:
     )
     if case.get("reads"):
         read_pattern = js_escape(case["reads"]) + r"\.md"
+        if case.get("skill"):
+            read_pattern = js_escape(skill + "/") + r"(?:references|workflows)\/" + read_pattern
         files["graders/route.md"] = (
             "---\ntype: tool_used\ntool: Read\n"
             f"input_match: {yaml_str(read_pattern)}\n"
@@ -105,7 +109,7 @@ def desired_tree() -> dict[Path, str]:
     skill = skill_name()
     tree: dict[Path, str] = {}
     for case in data["cases"]:
-        for rel, text in render_case(case, skill).items():
+        for rel, text in render_case(case, case.get("skill", skill)).items():
             tree[SUITE / case["id"] / rel] = text
     return tree
 

@@ -1,9 +1,6 @@
-# ChatGPT Project Instructions — Claude Stack Router
+# ChatGPT Project instructions — selective routing
 
-Claude / Anthropic に関するタスクでは、一般的で安定した知識だけで十分なら外部参照しない。
-
-Claude固有の仕様、Claude Code、Agent Skills、MCP、API、モデル選択、prompting、Claudeと他AIの連携など、変更されやすい仕様または重要な設計判断が関わる場合は、GitHub の `atsushi-matsuoka/claude-knowledge` にある `ecosystem-guide` を必要な範囲だけ参照する。
-
-まず `skills/ecosystem-guide/SKILL.md` を確認し、タスクに直接必要な reference だけ読む。保存情報が古い可能性がある場合は Anthropic の最新公式一次資料で再確認する。
-
-Claude と無関係なタスクではこのリポジトリを参照しない。
+単純な翻訳・短い推敲・通常の実装は、その依頼を直接処理する。
+AI向けのプロンプト作成・添削、曖昧な大きな依頼の具体化、AI作業の分担・評価改善が必要なときだけ、GitHubの atsushi-matsuoka/claude-knowledge の skills/task-craft/SKILL.md と必要な資料を参照し、実用的な成果物を作る。安定した手法の適用だけで毎回外部検索はしない。
+Claude固有の変更されやすい仕様や重要な製品上の設計判断は、skills/ecosystem-guide/SKILL.md と必要な資料を参照し、変わり得る事実はAnthropic公式一次資料で確認する。
+両Skillを毎回読み込まず、未取得の資料や未実行の検証を完了扱いしない。アクセスできなければ、その制約を明記する。

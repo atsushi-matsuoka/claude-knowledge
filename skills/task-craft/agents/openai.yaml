@@ -1,0 +1,4 @@
+interface:
+  display_name: "Task Craft"
+  short_description: "Turn rough goals into prompts, specs, and testable AI work"
+  default_prompt: "Use task-craft to produce the requested artifact, preserve the user's constraints, and distinguish proposed checks from executed tests."

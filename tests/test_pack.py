@@ -33,13 +33,13 @@ class ValidatorTests(unittest.TestCase):
     def setUp(self):
         self.tmp = Path(tempfile.mkdtemp())
         self.repo = copy_repo(self.tmp / "repo")
-        self.skill = next((self.repo / "skills").glob("*/SKILL.md"))
+        self.skill = self.repo / "skills" / "ecosystem-guide" / "SKILL.md"
 
     def tearDown(self):
         shutil.rmtree(self.tmp)
 
     def errors(self):
-        return validate_repository.validate(self.repo, today=date(2026, 9, 26))[0]
+        return validate_repository.validate(self.repo, today=date.today())[0]
 
     def test_repository_is_valid(self):
         self.assertEqual(self.errors(), [])
@@ -105,7 +105,7 @@ class BuildEvalsTests(unittest.TestCase):
         cases = json.loads((ROOT / "evals" / "questions.json").read_text())["cases"]
         for c in cases:
             grader = (suite / c["id"] / "graders" / "skill.md").read_text()
-            self.assertIn("ecosystem-guide", grader)
+            self.assertIn(c.get("skill", "ecosystem-guide"), grader)
             self.assertEqual("max: 0" in grader, not c["should_trigger"], c["id"])
 
 

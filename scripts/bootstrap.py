@@ -17,7 +17,8 @@ from __future__ import annotations
 import argparse, os, shutil, subprocess, sys
 from pathlib import Path
 
-SKILL_NAME = "ecosystem-guide"
+SKILL_NAME = "ecosystem-guide"  # Backward-compatible primary name.
+SKILL_NAMES = ("ecosystem-guide", "task-craft")
 LEGACY_SKILL_NAMES = ("sonnet-stack", "claude-stack")
 DEFAULT_DEST = Path.home()/".local"/"share"/"claude-knowledge"
 
@@ -104,14 +105,16 @@ def main() -> int:
             ap.error("Cannot determine repository URL")
         clone_or_update(repo_url, dest)
 
-    skill = dest/"skills"/SKILL_NAME
-    if not (skill/"SKILL.md").exists():
-        raise RuntimeError(f"Skill not found: {skill}")
+    skills = [(name, dest/"skills"/name) for name in SKILL_NAMES]
+    for name, skill in skills:
+        if not (skill/"SKILL.md").exists():
+            raise RuntimeError(f"Skill not found: {skill}")
 
-    # Codex USER scope. Gemini CLI also supports ~/.agents/skills as an alias.
-    install_link(skill, Path.home()/".agents"/"skills"/SKILL_NAME)
-    if ns.claude_code:
-        install_link(skill, Path.home()/".claude"/"skills"/SKILL_NAME)
+    # Validate all sources before changing any installation links.
+    for name, skill in skills:
+        install_link(skill, Path.home()/".agents"/"skills"/name)
+        if ns.claude_code:
+            install_link(skill, Path.home()/".claude"/"skills"/name)
 
     remove_legacy_links(dest)
     if not ns.claude_code:
