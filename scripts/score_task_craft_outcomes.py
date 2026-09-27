@@ -3,7 +3,9 @@
 
 See evals/TASK_CRAFT.md for collection protocol. Synthetic fixtures are not
 model-effectiveness evidence. Missing attempts count as failures and make the
-comparison incomplete. Extra/duplicate attempts are rejected.
+comparison incomplete, including placeholder rows without output or a nonempty
+error message. Recorded invalid output or an explicit execution error is a
+completed failed attempt, not missing evidence. Extra/duplicate attempts are rejected.
 """
 from __future__ import annotations
 import argparse
@@ -54,6 +56,9 @@ def score(fixtures: dict, data: dict) -> dict:
             raise ValueError(f"Unknown attempt: {key}")
         if key in indexed:
             raise ValueError(f"Duplicate attempt: {key}")
+        error = run.get("error")
+        if error is not None and not isinstance(error, str):
+            raise ValueError(f"Attempt error must be a string or null: {key}")
         indexed[key] = run
     result = {"metadata": meta, "scorer_only": True, "arms": {}, "failures": []}
     for arm in ARMS:
@@ -62,9 +67,13 @@ def score(fixtures: dict, data: dict) -> dict:
             for trial in range(1, trials + 1):
                 run = indexed.get((cid, arm, trial))
                 ok = False
-                if run is None:
+                has_output = run is not None and "output" in run
+                has_error = run is not None and bool((run.get("error") or "").strip())
+                # A row alone does not establish that the attempt was executed.
+                missing_result = not has_output and not has_error
+                if missing_result:
                     missing += 1
-                elif not run.get("error") and "output" in run:
+                elif not has_error and has_output:
                     output = run["output"]
                     try:
                         output = json.loads(output) if isinstance(output, str) else output
@@ -74,7 +83,7 @@ def score(fixtures: dict, data: dict) -> dict:
                 if ok:
                     passed += 1
                 else:
-                    result["failures"].append({"case_id": cid, "arm": arm, "trial": trial, "missing": run is None})
+                    result["failures"].append({"case_id": cid, "arm": arm, "trial": trial, "missing": missing_result})
         total = len(cases) * trials
         result["arms"][arm] = {"passed": passed, "total": total, "missing": missing, "rate": passed / total if total else None}
     complete = all(v["missing"] == 0 for v in result["arms"].values())

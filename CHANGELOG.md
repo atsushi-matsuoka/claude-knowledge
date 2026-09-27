@@ -9,6 +9,10 @@
 - Registered the new method sources for monthly monitoring and refreshed fetch baselines.
 - Existing historical handoffs and v0.2.0 measurement records remain unchanged below their new status notes. No automatic merge or paid evaluation.
 
+- PR #2 review fixes: placeholder result rows and empty error messages are missing evidence, never completed comparisons; recorded execution failures remain distinct.
+- Removed the version-pinned regression test, split version/frontmatter checks and added a coherent next-patch full-suite probe.
+- Made the deadline example explicitly confirmed-only, with four static contract probes; no real-model effectiveness claim.
+
 ## 0.2.0 - 2026-09-26
 
 - Renamed the skill `claude-stack` -> `ecosystem-guide`: Agent Skills names may not contain `claude`/`anthropic`, so the old name could not be uploaded to claude.ai or the API.

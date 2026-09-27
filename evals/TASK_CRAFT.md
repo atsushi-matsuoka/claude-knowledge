@@ -35,7 +35,7 @@ Use `scripts/score_task_craft_outcomes.py records.json --output report.json` to 
 }
 ```
 
-The example is incomplete and is not a measured result. Supply both arms for every case/trial; missing attempts fail and make the comparison incomplete. Duplicate/unknown attempts are rejected. Outputs must parse as exactly the required JSON structure, types and values. Add designer model/settings, trace locations, actual activation and execution environment to the metadata when recording a real experiment.
+The example is incomplete and is not a measured result. Supply both arms for every case/trial. A recorded attempt must contain an `output` key or a nonempty `error` string. An absent row, a placeholder row with neither, or an absent output with a null/empty/whitespace-only error is missing evidence: it fails and makes the comparison incomplete (`complete=false`, `model_effect_measured=false`, `observed_pass_rate_delta=null`, CLI exit 2). A recorded invalid output (including null or empty text) or an explicit execution-error message is instead a completed failed attempt. Non-string error values are rejected; a nonempty error takes precedence over any output. Duplicate/unknown attempts are rejected. Outputs must parse as exactly the required JSON structure, types and values. Add designer model/settings, trace locations, actual activation and execution environment to the metadata when recording a real experiment.
 
 ## Decision rule
 
