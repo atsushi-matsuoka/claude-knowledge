@@ -31,7 +31,8 @@ jobs:
       - name: Archive exactly the tested tracked pack
         if: matrix.python == '3.12'
         run: |
-          git archive --format=zip --output="$RUNNER_TEMP/openai-knowledge.zip" HEAD:packs/openai-knowledge
+          git -C "$(git rev-parse --show-toplevel)" archive --format=zip --output="$RUNNER_TEMP/openai-knowledge.zip" HEAD:packs/openai-knowledge
+          python -c 'import os, zipfile; p=os.path.join(os.environ["RUNNER_TEMP"], "openai-knowledge.zip"); z=zipfile.ZipFile(p); assert "pack.json" in z.namelist() and "scripts/validate.py" in z.namelist(); assert z.testzip() is None'
           git rev-parse HEAD > "$RUNNER_TEMP/openai-knowledge-commit.txt"
           git rev-parse HEAD:packs/openai-knowledge > "$RUNNER_TEMP/openai-knowledge-tree.txt"
           cd "$RUNNER_TEMP"
