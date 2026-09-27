@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.0 - 2026-09-27
+
+- Added `task-craft`: practical prompt/spec/workflow design, failure diagnosis, original examples and outcome evaluation, separate from product knowledge.
+- Recorded exactly which public educational text and official docs were reviewed; Academy lesson completion and real-model effectiveness remain unclaimed.
+- Added 24 task-craft routing/artifact cases and nine synthetic downstream fixtures with a strict offline scorer.
+- Generalized validation, generated evals and bootstrap to multiple skills while preserving the existing ecosystem-guide cases and description.
+- Registered the new method sources for monthly monitoring and refreshed fetch baselines.
+- Existing historical handoffs and v0.2.0 measurement records remain unchanged below their new status notes. No automatic merge or paid evaluation.
+
 ## 0.2.0 - 2026-09-26
 
 - Renamed the skill `claude-stack` -> `ecosystem-guide`: Agent Skills names may not contain `claude`/`anthropic`, so the old name could not be uploaded to claude.ai or the API.

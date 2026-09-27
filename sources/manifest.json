@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_curated": "2026-09-26",
+  "last_curated": "2026-09-27",
   "sources": [
     {
       "id": "anthropic-agent-skills-overview",
@@ -143,6 +143,69 @@
       "volatility": "high",
       "review_days": 14,
       "fetch_url": "https://platform.claude.com/docs/en/about-claude/pricing.md"
+    },
+    {
+      "id": "anthropic-prompt-overview",
+      "vendor": "anthropic",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview",
+      "fetch_url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview.md",
+      "purpose": "Success criteria before prompt optimization",
+      "volatility": "medium",
+      "review_days": 30
+    },
+    {
+      "id": "anthropic-prompt-practices",
+      "vendor": "anthropic",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+      "fetch_url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices.md",
+      "purpose": "Current prompting methods; do not freeze model-specific folklore",
+      "volatility": "medium",
+      "review_days": 30
+    },
+    {
+      "id": "anthropic-develop-tests",
+      "vendor": "anthropic",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "fetch_url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests.md",
+      "purpose": "Task-representative success criteria and evaluators",
+      "volatility": "medium",
+      "review_days": 30
+    },
+    {
+      "id": "anthropic-effective-agents",
+      "vendor": "anthropic",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "fetch_url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "purpose": "Proportionate workflows and bounded autonomy",
+      "volatility": "medium",
+      "review_days": 30
+    },
+    {
+      "id": "anthropic-context-engineering",
+      "vendor": "anthropic",
+      "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "fetch_url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "purpose": "Selective context and durable handoffs",
+      "volatility": "medium",
+      "review_days": 30
+    },
+    {
+      "id": "anthropic-agent-evaluation",
+      "vendor": "anthropic",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+      "fetch_url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+      "purpose": "Trace versus outcome and evaluation hygiene",
+      "volatility": "medium",
+      "review_days": 30
+    },
+    {
+      "id": "anthropic-course-prompt-process",
+      "vendor": "anthropic",
+      "url": "https://github.com/anthropics/courses/blob/master/real_world_prompting/03_prompt_engineering.ipynb",
+      "fetch_url": "https://raw.githubusercontent.com/anthropics/courses/master/real_world_prompting/03_prompt_engineering.ipynb",
+      "purpose": "Public educational text on diagnose/change/retest; not Academy course completion",
+      "volatility": "medium",
+      "review_days": 30
     }
   ],
   "notes": "fetch_url, when present, is what the watcher hashes (clean Markdown is far less noisy than rendered HTML). url is the human-facing page cited in references."

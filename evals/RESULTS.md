@@ -1,5 +1,9 @@
 # Eval results
 
+## 2026-09-27: task-craft / v0.3.0 candidate
+
+Model effectiveness is **unmeasured**. Added activation/artifact cases and a separate downstream-output protocol with an offline scorer; no Claude/Codex/Gemini model run or paid API evaluation was performed for this addition. Tooling/unit-test checks are reported separately in the PR. Do not attribute the historical scores below to task-craft. See evals/TASK_CRAFT.md.
+
 ## 2026-09-26: v0.1.1 `claude-stack` vs v0.2.0 `ecosystem-guide`
 
 Setup: `claude plugin eval`, Claude Code 2.1.283, agent `claude-sonnet-5`, judge `sonnet`, 2 runs per case, tools `Read Glob Grep Skill` (no web access unless noted). Both versions ran the same 46 cases from `questions.json`. "Tuned" = the 36 cases used while iterating the description; "held-out" = 10 cases written before the final runs and not used for tuning.

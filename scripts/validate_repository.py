@@ -64,27 +64,15 @@ def tracked_files(root: Path) -> list[Path]:
     return [f for f in root.rglob("*") if f.is_file() and ".git" not in f.parts]
 
 
-def validate(root: Path = DEFAULT_ROOT, today: date | None = None) -> tuple[list[str], list[str]]:
-    today = today or date.today()
+def validate_skill(skill_dir: Path, today: date):
+    """Apply the same portable-skill and context-budget checks to every skill."""
     errors: list[str] = []
     warnings: list[str] = []
-
-    for p in ("AGENTS.md", "CLAUDE.md", "GEMINI.md", "README.md", "CHANGELOG.md",
-              ".claude-plugin/plugin.json", ".claude-plugin/marketplace.json"):
-        if not (root / p).exists():
-            errors.append(f"Missing {p}")
-
-    # --- Skill ---------------------------------------------------------------
-    skill_dirs = sorted(d for d in (root / "skills").glob("*") if (d / "SKILL.md").exists())
-    if len(skill_dirs) != 1:
-        errors.append(f"Expected exactly one skill under skills/, found {[d.name for d in skill_dirs]}")
-        return errors, warnings
-    skill_dir = skill_dirs[0]
     skill_text = (skill_dir / "SKILL.md").read_text(encoding="utf-8")
     parsed = parse_frontmatter(skill_text)
     if not parsed:
         errors.append("SKILL.md must start with a closed YAML frontmatter block")
-        return errors, warnings
+        return errors, warnings, {}
     fm, body = parsed
     name, desc = fm.get("name", ""), fm.get("description", "")
 
@@ -127,6 +115,12 @@ def validate(root: Path = DEFAULT_ROOT, today: date | None = None) -> tuple[list
         for f in sorted((skill_dir / sub).glob("*.md")):
             rel = f"{sub}/{f.name}"
             text = f.read_text(encoding="utf-8")
+            if sub == "references" and not re.search(r"^## Sources\s*$", text, re.M):
+                message = f"{rel} missing '## Sources'"
+                if skill_dir.name == "ecosystem-guide":
+                    warnings.append(message + " (pre-existing reference; review separately)")
+                else:
+                    errors.append(message)
             if f.resolve() not in linked:
                 errors.append(f"{rel} is not linked from SKILL.md (orphaned or unreachable)")
             for target in LINK_RE.findall(text):
@@ -145,6 +139,31 @@ def validate(root: Path = DEFAULT_ROOT, today: date | None = None) -> tuple[list
                     elif (today - d).days > STALE_WARN_DAYS:
                         warnings.append(f"{rel} last verified {d} ({(today - d).days} days ago)")
 
+    return errors, warnings, fm
+
+
+def validate(root: Path = DEFAULT_ROOT, today: date | None = None) -> tuple[list[str], list[str]]:
+    today = today or date.today()
+    errors: list[str] = []
+    warnings: list[str] = []
+
+    for p in ("AGENTS.md", "CLAUDE.md", "GEMINI.md", "README.md", "CHANGELOG.md",
+              ".claude-plugin/plugin.json", ".claude-plugin/marketplace.json"):
+        if not (root / p).exists():
+            errors.append(f"Missing {p}")
+
+    # --- Skills --------------------------------------------------------------
+    skill_dirs = sorted(d for d in (root / "skills").glob("*") if (d / "SKILL.md").exists())
+    if not skill_dirs:
+        errors.append("Expected at least one skill under skills/")
+        return errors, warnings
+    skill_metadata = {}
+    for skill_dir in skill_dirs:
+        skill_errors, skill_warnings, skill_fm = validate_skill(skill_dir, today)
+        errors.extend(f"{skill_dir.name}: {e}" for e in skill_errors)
+        warnings.extend(f"{skill_dir.name}: {w}" for w in skill_warnings)
+        skill_metadata[skill_dir.name] = skill_fm
+
     # --- Plugin / marketplace ----------------------------------------------
     try:
         plugin = json.loads((root / ".claude-plugin/plugin.json").read_text(encoding="utf-8"))
@@ -160,9 +179,10 @@ def validate(root: Path = DEFAULT_ROOT, today: date | None = None) -> tuple[list
         errors.append("marketplace.json has no entry matching plugin.json name")
     elif entries[plugin["name"]].get("source") != "./":
         errors.append("marketplace entry source must be './' (repository root is the plugin)")
-    meta_version = re.search(r"^\s+version:\s*(\S+)", fm.get("metadata", ""), re.M)
-    if not meta_version or meta_version.group(1) != version:
-        errors.append("SKILL.md metadata.version must equal plugin.json version")
+    for skill_name, skill_fm in skill_metadata.items():
+        meta_version = re.search(r"^\s+version:\s*(\S+)", skill_fm.get("metadata", ""), re.M)
+        if not meta_version or meta_version.group(1) != version:
+            errors.append(f"{skill_name}: SKILL.md metadata.version must equal plugin.json version")
     changelog = (root / "CHANGELOG.md").read_text(encoding="utf-8") if (root / "CHANGELOG.md").exists() else ""
     top = re.search(r"^## (\d+\.\d+\.\d+)", changelog, re.M)
     if not top or top.group(1) != version:
@@ -185,14 +205,25 @@ def validate(root: Path = DEFAULT_ROOT, today: date | None = None) -> tuple[list
         errors.append(f"Need at least {MIN_CASES} eval cases")
     if len(case_ids) != len(set(case_ids)):
         errors.append("Duplicate eval id")
-    ref_stems = {f.stem for sub in ("references", "workflows") for f in (skill_dir / sub).glob("*.md")}
+    ref_stems = {d.name: {f.stem for sub in ("references", "workflows") for f in (d / sub).glob("*.md")} for d in skill_dirs}
     for c in cases:
         if not c.get("prompt") or not c.get("expect") or not isinstance(c.get("should_trigger"), bool):
             errors.append(f"Malformed eval (needs prompt, expect, boolean should_trigger): {c.get('id')}")
-        if c.get("reads") and c["reads"] not in ref_stems:
+        target = c.get("skill", "ecosystem-guide")
+        if target not in ref_stems:
+            errors.append(f"Eval {c.get('id')} targets unknown skill '{target}'")
+        if c.get("reads") and c["reads"] not in ref_stems.get(target, set()):
             errors.append(f"Eval {c.get('id')} reads unknown reference '{c['reads']}'")
     if sum(1 for c in cases if c.get("should_trigger") is False) < MIN_NEGATIVE_CASES:
         errors.append(f"Need at least {MIN_NEGATIVE_CASES} should-not-trigger cases")
+    if evals.get("schema_version") != 2:
+        errors.append("evals/questions.json must use schema_version 2")
+    for target in ref_stems:
+        own = [c for c in cases if c.get("skill", "ecosystem-guide") == target]
+        if len(own) < MIN_CASES:
+            errors.append(f"{target}: need at least {MIN_CASES} eval cases")
+        if sum(c.get("should_trigger") is False for c in own) < MIN_NEGATIVE_CASES:
+            errors.append(f"{target}: need at least {MIN_NEGATIVE_CASES} should-not-trigger cases")
     build = root / "scripts/build_evals.py"
     if build.exists():
         p = subprocess.run([sys.executable, str(build), "--check"], text=True, capture_output=True)

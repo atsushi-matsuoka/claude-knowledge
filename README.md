@@ -1,14 +1,14 @@
 # Claude Knowledge Pack
 
-A reviewed, version-controlled knowledge pack about the Claude ecosystem, shared by Claude (chat, Cowork, Claude Code), Codex and Gemini CLI. GitHub is the source of truth.
+A reviewed, version-controlled knowledge and practice pack about the Claude ecosystem, shared by Claude (chat, Cowork, Claude Code), Codex and Gemini CLI. GitHub is the source of truth.
 
 ## Design
 
-- **One portable skill, `ecosystem-guide`.** Written to the open Agent Skills spec (portable frontmatter only, no reserved words in the name), so the same folder works as a Claude plugin skill, a claude.ai upload, and a Codex/Gemini skill.
-- **Small always-on footprint.** Hosts see only the ~700-character description. The ~60-line `SKILL.md` loads when relevant; each reference loads only when its row in the routing table applies.
-- **Trigger narrowly.** The description targets questions whose answer changes over time or differs by surface, and names what it is *not* for (general coding, stable concepts, other vendors alone, API code that the `claude-api` skill covers).
+- **Two focused portable skills.** `ecosystem-guide` handles changing Claude product knowledge; `task-craft` applies prompting, specification and evaluation methods. Each uses portable frontmatter and can be distributed in this plugin or installed separately.
+- **Small always-on footprint.** Hosts see concise descriptions; each skill body and its matching references load only when needed. Do not load both entire folders for every request.
+- **Different triggers.** Product/surface questions use ecosystem-guide. Prompt design, substantial idea-to-spec work and AI workflow improvement use task-craft. Simple direct execution and stable conceptual explanations need neither practice procedure nor extra retrieval.
 - **Official docs win.** Volatile facts live in references with `Last verified` dates and `## Sources`. The skill verifies live when it can, and says when it cannot.
-- **Measured, not assumed.** `evals/questions.json` is the agent-neutral case set; a generated `claude plugin eval` suite measures trigger recall, false triggers, routing and answer quality against a no-plugin baseline.
+- **Measured, not assumed.** Historical ecosystem-guide results remain in evals/RESULTS.md. task-craft has test infrastructure but its model effectiveness is unmeasured; activation, artifact quality and downstream outcomes are separate.
 - **Reviewed updates only.** The monthly source watcher opens an issue naming which references cite each changed page; it never rewrites knowledge itself.
 
 ## Install
@@ -35,7 +35,7 @@ Plugin UI labels and sync behavior change; check https://claude.com/docs/plugins
 python scripts/bootstrap.py --repo-url https://github.com/atsushi-matsuoka/claude-knowledge.git
 ```
 
-Clones (or fast-forwards a clean checkout) to `~/.local/share/claude-knowledge` and links `~/.agents/skills/ecosystem-guide`. Add `--claude-code` to also link `~/.claude/skills/ecosystem-guide` if you prefer a live checkout over the plugin in Claude Code; do not use both, or the skill is listed twice. `skills/ecosystem-guide/scripts/ensure_fresh.py` fast-forwards a linked checkout at most once a day.
+Clones (or fast-forwards a clean checkout) to `~/.local/share/claude-knowledge` and links both `~/.agents/skills/ecosystem-guide` and `~/.agents/skills/task-craft`. Add `--claude-code` to also link `~/.claude/skills/ecosystem-guide` if you prefer a live checkout over the plugin in Claude Code; do not use both, or the skill is listed twice. `skills/ecosystem-guide/scripts/ensure_fresh.py` fast-forwards a linked checkout at most once a day.
 
 ChatGPT Projects and Gemini apps without skill support can use the routing text in `adapters/`.
 
@@ -52,6 +52,10 @@ skills/ecosystem-guide/
   references/          dated, source-linked notes (loaded on demand)
   workflows/           update-knowledge-pack.md
   agents/openai.yaml   Codex display metadata
+skills/task-craft/
+  SKILL.md             task-design trigger and work contract
+  references/          original method notes and worked examples
+  workflows/           prompt repair, idea-to-spec, agent planning, iteration
 evals/questions.json   agent-neutral cases (should_trigger, reads, expect)
 evals/claude-code/     generated claude plugin eval suite
 sources/               official pages watched for changes
@@ -59,6 +63,14 @@ scripts/               validate, build/summarize evals, source watch, bootstrap
 tests/                 unit tests for the scripts
 AGENTS.md              shared repo instructions (CLAUDE.md and GEMINI.md import it)
 ```
+
+## Practice layer: use task-craft for the work itself
+
+For example: 「この曖昧なアイデアを、試せる最小仕様にして」, 「このプロンプトが不確実性を消してしまうので直して」, or 「このAI作業を公平に比較する評価を設計して」. The skill should return a usable artifact, not merely describe Claude features. When a task also depends on current Claude product facts, consult ecosystem-guide only for that subtask.
+
+This first practice layer uses reviewed public Anthropic educational text and official documentation. It does **not** mean the full Academy was learned. Academy pages/lesson bodies not obtained remain incomplete; no exercises or real-model effectiveness tests were executed here. See `academy-notes/2026-09-27-practice-intake.md`, `skills/task-craft/references/learning-provenance.md` and `evals/TASK_CRAFT.md`.
+
+The plugin package now contains both skills. An unmerged PR is not a deployed update: update the installed package only after review and merge. The routing text in `adapters/` is a template, not a claim that account-level instructions were changed.
 
 ## Updating knowledge
 
@@ -74,6 +86,8 @@ python scripts/check_sources.py --no-network
 Academy notes go to Google Drive or `academy-notes/` first (see `docs/google-drive.md`) and are summarized, never copied.
 
 ## Evaluating routing
+
+Cases retain schema v2; optional `skill` chooses the graded target, with ecosystem-guide as the backward-compatible default. All new cases carry a task-craft tag. Use `scripts/summarize_evals.py ... --tag task-craft` for that skill and `--exclude-tag task-craft` for the original skill. Do not pool their scores as evidence of improved prompt design. See `evals/TASK_CRAFT.md` for a separate downstream-output comparison.
 
 Requires Claude Code and uses real model calls (counted against your plan or API bill).
 
