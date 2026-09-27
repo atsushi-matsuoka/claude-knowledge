@@ -12,3 +12,17 @@
 10. Bump VERSION, pack.json, both SKILL metadata versions and the top CHANGELOG entry together after a released version. Stage all changes on a new branch and open a reviewable PR. No auto-merge or unapproved paid evaluation.
 
 Report changed files, official URLs and retrieval coverage, verification commands and results, unresolved warnings, measured/unmeasured effects, and deployment state. Existing parent Claude maintenance and this pack must not rewrite each other's files. The existing personal optimize-model-prompt skill is a separate asset until its actual contents are obtained and a migration is approved.
+
+## Source access failures
+
+Read `http_status` when present. A 403 or other failed fetch remains a visible
+failure; a browser being able to read the same public page does not make the
+runner check successful. Use an authorized browser for semantic review, retain
+the access limitation, and retry in a later maintenance run. Do not remove the
+source, weaken access restrictions or manufacture a reviewed hash merely to make
+CI green. Where the exact fetched body was not inspected, leave the reviewed
+baseline unset even if an observation hash exists.
+
+The weekly maintenance task handles both this pack and the separate existing
+personal `optimize-model-prompt` Skill when it is actually accessible. Do not
+create a second overlapping schedule or assume that personal Skill was migrated.
