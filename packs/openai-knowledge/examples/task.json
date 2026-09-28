@@ -1,8 +1,0 @@
-{
-  "surface": "api-responses",
-  "complexity": "standard",
-  "failure_cost": "high",
-  "semantic_precision": true,
-  "blocked_by_evidence": false,
-  "quality_failure": false
-}
