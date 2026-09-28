@@ -1,0 +1,11 @@
+{
+  "name": "openai-knowledge",
+  "version": "0.1.0",
+  "skills": [
+    "openai-guide",
+    "gpt-workbench"
+  ],
+  "repository": "atsushi-matsuoka/claude-knowledge",
+  "subdirectory": "packs/openai-knowledge",
+  "effectiveness": "unmeasured"
+}

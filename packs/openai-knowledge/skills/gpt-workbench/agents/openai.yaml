@@ -1,0 +1,5 @@
+interface:
+  display_name: "gpt-workbench"
+  short_description: "Selective OpenAI guidance"
+policy:
+  allow_implicit_invocation: true
