@@ -2,7 +2,7 @@
 name: ecosystem-guide
 description: Claude/Anthropic ecosystem guide with dated, source-linked notes. Consult it before answering from memory whenever the answer depends on facts that change or differ by surface - whether a Skill, plugin, connector, hook, setting or feature works in claude.ai chat, Cowork, Claude Code or the Claude API, and whether it syncs between them; where guidance belongs (CLAUDE.md, AGENTS.md, rules, Skills, subagents, hooks, MCP, plugins); current Claude models, pricing, limits, plan availability or beta status; which source to trust (official docs, Academy, forums); Claude prompting guidance; handing work between Claude and Codex/ChatGPT or Gemini, or sharing skills with them; and maintaining the claude-knowledge pack (Academy notes, source-watch alerts, evals, bootstrap). Not for general coding, stable concepts, other vendors' tools alone, or writing Claude API/SDK code (use the claude-api skill).
 metadata:
-  version: 0.3.0
+  version: 0.3.1
   source: https://github.com/atsushi-matsuoka/claude-knowledge
 ---
 

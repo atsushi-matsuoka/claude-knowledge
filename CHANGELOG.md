@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.1 - 2026-10-02
+
+- Reviewed the 2026-10-01 source-watch signals against current first-party documentation rather than treating fingerprint changes as behavior changes.
+- Refreshed the dated model-selection snapshot for the current Claude Platform lineup.
+- Clarified claude.ai account Skill synchronization into Cowork, cloud and signed-in Claude Code, including the terminal version/background-sync boundary and the documented Platform-vs-Code wording conflict.
+- Recorded the bundled official `/claude-api` Skill as the preferred route for volatile Claude API/SDK reference material instead of duplicating it here.
+- Rechecked current prompting guidance; no task-craft procedure, canonical eval case, generated eval, bootstrap, marketplace structure or source fetch URL changed.
+- No new Claude Academy lesson body or exercise was promoted, and no Claude plugin eval or downstream model-effect comparison was run. task-craft effectiveness remains unmeasured.
+
 ## 0.3.0 - 2026-09-27
 
 - Added `task-craft`: practical prompt/spec/workflow design, failure diagnosis, original examples and outcome evaluation, separate from product knowledge.

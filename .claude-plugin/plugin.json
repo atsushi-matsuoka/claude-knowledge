@@ -1,6 +1,6 @@
 {
   "name": "claude-knowledge",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Two focused skills: ecosystem-guide for Claude product routing and freshness; task-craft for prompt design, testable specifications and bounded AI workflows.",
   "author": {
     "name": "Atsushi Matsuoka"
