@@ -1,6 +1,6 @@
 # Agent Skills: authoring, packaging, evaluating
 
-Last verified: 2026-09-26
+Last verified: 2026-10-02
 
 A Skill is a folder with `SKILL.md` plus optional scripts, references and assets. The host shows only `name` + `description` until the skill is relevant, then loads the body, then linked files on demand (progressive disclosure).
 
@@ -25,6 +25,10 @@ A Skill is a folder with `SKILL.md` plus optional scripts, references and assets
 - **Other agents**: Codex and Gemini CLI read `~/.agents/skills/<name>/` (check their current docs).
 - **API**: upload through the Skills API separately.
 
+## Claude API work
+
+Claude Code bundles the official `/claude-api` skill and can activate it automatically for Claude API, Managed Agents and Anthropic SDK work. It loads current language- and task-specific API documentation on demand and also provides migration/evaluation workflows. Prefer that skill and the live Platform docs over copying volatile API/SDK reference material into a general ecosystem skill.
+
 ## Evaluating
 
 - Build a few realistic prompts first, including prompts that should *not* trigger the skill, and measure without the skill as a baseline.
@@ -35,5 +39,6 @@ A Skill is a folder with `SKILL.md` plus optional scripts, references and assets
 
 - https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview
 - https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices
+- https://platform.claude.com/docs/en/agents-and-tools/agent-skills/claude-api-skill
 - https://code.claude.com/docs/en/skills
 - https://code.claude.com/docs/en/plugin-evals
