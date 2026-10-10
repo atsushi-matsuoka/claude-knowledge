@@ -4,7 +4,7 @@
   "owner": { "name": "Atsushi Matsuoka" },
   "plugins": [
     {
-      "name": "claude-knowledge",
+      "name": "matsuoka-knowledge-pack",
       "source": "./",
       "description": "Routing and freshness guide for the Claude ecosystem."
     }

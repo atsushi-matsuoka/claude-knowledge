@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.1 - 2026-10-10
+
+- Moved the Anthropic official-source fingerprint watcher from monthly to weekly (Sunday 09:30 JST), ahead of the separately scheduled biweekly full knowledge review.
+- Kept source changes as review signals, with no automatic knowledge rewrite, PR merge or installed-plugin update.
+- Renamed the third-party plugin package from `claude-knowledge` to `matsuoka-knowledge-pack` to satisfy current Claude Code reserved-name rules; existing installations need a one-time migration (README). Marketplace name, repository URL and Skill names remain unchanged.
+
 ## 0.3.0 - 2026-09-27
 
 - Added `task-craft`: practical prompt/spec/workflow design, failure diagnosis, original examples and outcome evaluation, separate from product knowledge.
