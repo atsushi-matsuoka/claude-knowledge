@@ -17,15 +17,15 @@ A reviewed, version-controlled knowledge and practice pack about the Claude ecos
 
 The repository root is a plugin and a one-plugin marketplace.
 
-- **claude.ai / Cowork**: Customize > Plugins > add marketplace `atsushi-matsuoka/claude-knowledge`, then install `claude-knowledge`. Account installs also reach Claude Code sessions signed in with the same account.
+- **claude.ai / Cowork**: Customize > Plugins > add marketplace `atsushi-matsuoka/claude-knowledge`, then install `matsuoka-knowledge-pack`. Account installs also reach Claude Code sessions signed in with the same account.
 - **Claude Code only**:
 
   ```bash
   claude plugin marketplace add atsushi-matsuoka/claude-knowledge
-  claude plugin install claude-knowledge@matsuoka-knowledge
+  claude plugin install matsuoka-knowledge-pack@matsuoka-knowledge
   ```
 
-  Update later with `claude plugin marketplace update matsuoka-knowledge`. The skill appears as `claude-knowledge:ecosystem-guide`.
+  Update later with `claude plugin marketplace update matsuoka-knowledge`. The skill appears as `matsuoka-knowledge-pack:ecosystem-guide`.
 
 Plugin UI labels and sync behavior change; check https://claude.com/docs/plugins/overview if a step differs. A private repository needs GitHub access granted on each surface.
 
@@ -38,6 +38,20 @@ python scripts/bootstrap.py --repo-url https://github.com/atsushi-matsuoka/claud
 Clones (or fast-forwards a clean checkout) to `~/.local/share/claude-knowledge` and links both `~/.agents/skills/ecosystem-guide` and `~/.agents/skills/task-craft`. Add `--claude-code` to also link `~/.claude/skills/ecosystem-guide` if you prefer a live checkout over the plugin in Claude Code; do not use both, or the skill is listed twice. `skills/ecosystem-guide/scripts/ensure_fresh.py` fast-forwards a linked checkout at most once a day.
 
 ChatGPT Projects and Gemini apps without skill support can use the routing text in `adapters/`.
+
+### Plugin-name migration (0.3.1)
+
+The third-party plugin package was renamed from `claude-knowledge` to `matsuoka-knowledge-pack` because current Claude Code validation reserves plugin names beginning with `claude-`. The repository URL, marketplace name `matsuoka-knowledge`, and Skill names `ecosystem-guide` and `task-craft` are unchanged. **Existing installations do not migrate automatically.**
+
+For a plugin installed locally through the Claude Code marketplace, after the updated marketplace is available:
+
+```bash
+claude plugin marketplace update matsuoka-knowledge
+claude plugin uninstall claude-knowledge@matsuoka-knowledge
+claude plugin install matsuoka-knowledge-pack@matsuoka-knowledge
+```
+
+If you installed the previous plugin through **claude.ai / Cowork**, remove the old account plugin through Customize > Plugins, then install `matsuoka-knowledge-pack` from the same marketplace. Account-managed plugins sync to supported Claude Code sessions; local Claude Code plugin installs do not sync back to your account. Check the installation scope before uninstalling, and avoid enabling both versions at once. Reload plugins or restart sessions to apply the change.
 
 ### Migration from `claude-stack` / `sonnet-stack`
 

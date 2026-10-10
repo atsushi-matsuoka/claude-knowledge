@@ -1,5 +1,5 @@
 {
-  "name": "claude-knowledge",
+  "name": "matsuoka-knowledge-pack",
   "version": "0.3.1",
   "description": "Two focused skills: ecosystem-guide for Claude product routing and freshness; task-craft for prompt design, testable specifications and bounded AI workflows.",
   "author": {
