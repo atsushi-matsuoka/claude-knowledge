@@ -9,7 +9,7 @@ A reviewed, version-controlled knowledge and practice pack about the Claude ecos
 - **Different triggers.** Product/surface questions use ecosystem-guide. Prompt design, substantial idea-to-spec work and AI workflow improvement use task-craft. Simple direct execution and stable conceptual explanations need neither practice procedure nor extra retrieval.
 - **Official docs win.** Volatile facts live in references with `Last verified` dates and `## Sources`. The skill verifies live when it can, and says when it cannot.
 - **Measured, not assumed.** Historical ecosystem-guide results remain in evals/RESULTS.md. task-craft has test infrastructure but its model effectiveness is unmeasured; activation, artifact quality and downstream outcomes are separate.
-- **Reviewed updates only.** The monthly source watcher opens an issue naming which references cite each changed page; it never rewrites knowledge itself.
+- **Reviewed updates only.** The weekly source watcher opens an issue naming which references cite each changed page; it never rewrites knowledge itself.
 
 ## Install
 
