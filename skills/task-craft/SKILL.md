@@ -2,7 +2,7 @@
 name: task-craft
 description: Turns rough intentions into usable prompts, testable specifications and bounded AI workflows; diagnoses and improves unreliable AI outputs. Use when the user asks to design or revise a prompt, make an ambiguous substantial project concrete, plan delegated AI work, or evaluate and improve an AI workflow (including プロンプト作成・添削, 曖昧なアイデアの具体化, AIへの依頼設計). Applies Anthropic educational practices to work with Claude and, where transferable, other assistants. Not for ordinary direct execution such as a simple translation, short rewrite, routine coding, or a general explanation of prompting; not for product pricing, installation or sync questions alone. Produce the requested artifact, not a lecture or another prompt when the user asked for the work itself.
 metadata:
-  version: 0.3.0
+  version: 0.3.1
   source: https://github.com/atsushi-matsuoka/claude-knowledge
 ---
 
