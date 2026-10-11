@@ -1,8 +1,8 @@
 # Claude model selection
 
-Last verified: 2026-10-10
+Last verified: 2026-10-11
 
-Models change. Verify official documentation and the actual platform, provider, plan and account before recommending or pinning a model. This UTC-dated snapshot (checked October 11 JST) does not establish personal access or measured task quality.
+Models change. Verify official documentation and the actual platform, provider, plan and account before recommending or pinning a model. This October 11, 2026 snapshot does not establish personal access or measured task quality.
 
 ## Current Claude API lineup (October 11, 2026 JST)
 
