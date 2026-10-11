@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.2 - 2026-10-11
+
+- Re-verified Claude Fable 5.1, Opus 5.5, Sonnet 5.5 and Haiku 5.5 against official model IDs, availability caveats, context/output limits, thinking modes and API pricing, including Haiku's 100K-token pricing boundary and model-specific cache-read rates.
+- Documented Claude Sonnet 4.5 deprecation (2026-09-30), planned retirement (2026-11-30 on Anthropic-operated platforms), and the need to check provider-specific schedules and migration/Claude Code compatibility.
+- Updated the README's illustrative Claude plugin eval model from Sonnet 5 to Sonnet 5.5; the example does not assert a successful paid model evaluation.
+- No model benchmark, account activation, plugin installation, or automatic merge was performed.
+
 ## 0.3.1 - 2026-10-10
 
 - Moved the Anthropic official-source fingerprint watcher from monthly to weekly (Sunday 09:30 JST), ahead of the separately scheduled biweekly full knowledge review.

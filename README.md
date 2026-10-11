@@ -111,7 +111,7 @@ claude plugin eval . --trust-plugin --no-publish --runs 1 --ablation none --json
 
 # full comparison against the no-plugin baseline
 claude plugin eval . --trust-plugin --no-publish --runs 2 -j 6 \
-  --model claude-sonnet-5 --judge-model sonnet --json /tmp/full.json
+  --model claude-sonnet-5-5 --judge-model sonnet --json /tmp/full.json
 
 python scripts/summarize_evals.py /tmp/full.json --per-case
 ```
