@@ -53,6 +53,8 @@ claude plugin install matsuoka-knowledge-pack@matsuoka-knowledge
 
 If you installed the previous plugin through **claude.ai / Cowork**, remove the old account plugin through Customize > Plugins, then install `matsuoka-knowledge-pack` from the same marketplace. Account-managed plugins sync to supported Claude Code sessions; local Claude Code plugin installs do not sync back to your account. Check the installation scope before uninstalling, and avoid enabling both versions at once. Reload plugins or restart sessions to apply the change.
 
+For **later account-level marketplace updates**, the current Plugins help documents **Check for updates** under Customize > Plugins and optional **Sync automatically** for a GitHub marketplace you added yourself. Neither setting proves that an account received a specific commit. The one-time old-to-new *plugin name* migration above remains manual; verify the installed package name and version on the actual surface. See https://claude.com/docs/plugins/overview.
+
 ### Migration from `claude-stack` / `sonnet-stack`
 
 Version 0.2.0 renamed the skill. Re-running `bootstrap.py` removes old `claude-stack` and `sonnet-stack` symlinks that point into this checkout; it never deletes ordinary directories. Install the plugin for Claude afterwards.

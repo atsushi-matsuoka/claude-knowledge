@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.3 - 2026-10-12
+
+- Clarified Anthropic's staged chat/Cowork integration versus per-surface plugin and execution support; user/account rollout must be verified.
+- Routed the October 9 Claude Managed Agents dynamic workflow beta to its separate Platform surface with budget/run-state cautions; did not duplicate API docs or authorize model calls.
+- Clarified marketplace account-update controls versus the one-time manual plugin-name migration. No account update or plugin installation was attempted.
+- Kept current model IDs and 2026-10-11 model guidance, Skill routing, eval cases, marketplace/plugin names and repository visibility unchanged. No real-model evaluation was run.
+
 ## 0.3.2 - 2026-10-11
 
 - Re-verified Claude Fable 5.1, Opus 5.5, Sonnet 5.5 and Haiku 5.5 against official model IDs, availability caveats, context/output limits, thinking modes and API pricing, including Haiku's 100K-token pricing boundary and model-specific cache-read rates.
