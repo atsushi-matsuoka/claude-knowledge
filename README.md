@@ -9,7 +9,7 @@ A reviewed, version-controlled knowledge and practice pack about the Claude ecos
 - **Different triggers.** Product/surface questions use ecosystem-guide. Prompt design, substantial idea-to-spec work and AI workflow improvement use task-craft. Simple direct execution and stable conceptual explanations need neither practice procedure nor extra retrieval.
 - **Official docs win.** Volatile facts live in references with `Last verified` dates and `## Sources`. The skill verifies live when it can, and says when it cannot.
 - **Measured, not assumed.** Historical ecosystem-guide results remain in evals/RESULTS.md. task-craft has test infrastructure but its model effectiveness is unmeasured; activation, artifact quality and downstream outcomes are separate.
-- **Reviewed updates only.** The weekly source watcher opens an issue naming which references cite each changed page; it never rewrites knowledge itself.
+- **Verified updates only.** The weekly source watcher opens an issue naming which references cite each changed page; it never rewrites knowledge itself. The biweekly maintainer can merge a reviewable PR after all required GitHub checks/reviews and source review succeed.
 
 ## Install
 
@@ -86,7 +86,7 @@ For example: 「この曖昧なアイデアを、試せる最小仕様にして�
 
 This first practice layer uses reviewed public Anthropic educational text and official documentation. It does **not** mean the full Academy was learned. Academy pages/lesson bodies not obtained remain incomplete; no exercises or real-model effectiveness tests were executed here. See `academy-notes/2026-09-27-practice-intake.md`, `skills/task-craft/references/learning-provenance.md` and `evals/TASK_CRAFT.md`.
 
-The plugin package now contains both skills. An unmerged PR is not a deployed update: update the installed package only after review and merge. The routing text in `adapters/` is a template, not a claim that account-level instructions were changed.
+The plugin package now contains both skills. An unmerged PR is not deployed, and even a merged GitHub update does **not** prove the new plugin is installed or enabled on any account. Marketplace syncing depends on the actual account/surface and its settings; verify the installed version separately. The routing text in `adapters/` is a template, not a claim that account-level instructions were changed.
 
 ## Updating knowledge
 
@@ -100,6 +100,12 @@ python scripts/check_sources.py --no-network
 ```
 
 Academy notes go to Google Drive or `academy-notes/` first (see `docs/google-drive.md`) and are summarized, never copied.
+
+### Autonomous GitHub maintenance (owner-authorized)
+
+The biweekly maintenance task checks the current merged `main`, official Anthropic pages, open Issues/PRs and source-watch signals. If it finds verified changes, it edits the minimum files in a branch, opens or updates a PR, checks the exact head SHA and waits for the required GitHub CI/review gates. It may **merge the PR automatically** when all gates pass; it then confirms the merge and the updated `main`. It must not bypass branch protection or treat a CI failure/unknown source as success. An unresolved blocker is reported rather than silently omitted.
+
+This is automated **repository and marketplace-source publishing**, not automatic installation into Claude chat/Cowork/Claude Code accounts. For claude.ai account plugins, check the update/sync settings under Customize > Plugins and verify the live installed version; for locally installed Claude Code plugins, use the marketplace update command above. Authentication, plugin replacement and real-model paid evaluations are not performed by this maintainer. Existing old-name installs still require the manual migration above.
 
 ## Evaluating routing
 
