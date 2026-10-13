@@ -1,11 +1,15 @@
 # Claude product surfaces
 
-Last verified: 2026-09-26
+Last verified: 2026-10-12
+
+## App experience and feature boundaries (verified 2026-10-12)
+
+On September 16, 2026 Anthropic announced that chat and Cowork would converge into one Claude conversation experience. Rollout began with Pro and Max across web, desktop and mobile, with other plans following separately. **Do not assume a particular account has received it.** An integrated UI does not remove distinct plugin execution rules: an ordinary chat conversation and an agentic work session can still support different capabilities. Confirm the account, plan, app and component before promising local tools, background execution or file writes.
 
 ## Surfaces
 
 - **claude.ai chat**: web, desktop and mobile conversations.
-- **Cowork**: agentic tasks in the Claude desktop app; runs in an isolated environment and can write to the user's files.
+- **Cowork / agentic work**: the desktop app's Cowork mode and the gradually unified Claude experience can handle substantial delegated work; execution environment, local-file reach and approvals depend on the app/session and rollout.
 - **Claude Code**: terminal, IDE extensions, the desktop app's Code tab, and cloud sessions (claude.ai/code, routines).
 - **Claude API / Claude Platform**: programmatic access, including the Skills API and managed agents.
 - **Agent SDK**: Claude Code's agent loop as a library.
@@ -48,3 +52,4 @@ A plugin folder installs everywhere, but each surface loads a subset:
 - https://code.claude.com/docs/en/skills (where skills live; Cowork and cloud; synced skills)
 - https://claude.com/docs/plugins/platform-support (component support by app)
 - https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview (API and upload constraints)
+- https://claude.com/resources/articles/cowork-is-now-claude (September 16, 2026 rollout and integrated app experience)

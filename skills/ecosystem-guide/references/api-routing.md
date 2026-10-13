@@ -1,6 +1,6 @@
 # Claude API routing
 
-Last verified: 2026-09-23
+Last verified: 2026-10-12
 
 For Claude API/SDK implementation, prefer current first-party references and Anthropic's official `claude-api` Agent Skill when it is available. That official skill is designed to supply up-to-date API reference material and language-specific SDK guidance.
 
@@ -9,3 +9,16 @@ This knowledge pack should contain only routing rules, cross-surface distinction
 If the task involves exact model IDs, headers, beta versions, pricing, context limits, or endpoint schemas, live-verify the official Claude Platform docs before coding when possible.
 
 Surface note: the `claude-api` skill is bundled with Claude Code. In chat or Cowork it may not be present; there, read the Platform docs directly (`https://platform.claude.com/llms.txt` is the index).
+
+## Managed Agents are a separate Platform surface
+
+As of the October 9, 2026 Platform release notes, **dynamic workflows** are in beta for **Claude Managed Agents** (beta header `managed-agents-2026-04-01`). The relevant agent definition uses `multiagent.type: multiagent_20261001` and can enable `workflows.type: enabled`; multi-agent work runs server-side and exposes `workflow_run.*` events in the session stream. **Do not infer this feature exists in the Messages API, Agent SDK, Claude Code, or claude.ai chat.** Check the exact surface and entitlement before design or deployment.
+
+For independent work that merits orchestration, set a session budget before running, and distinguish paused, failed and completed workflow runs. Prefer a single agent or a direct tool call for small tasks. Documentation of a beta is not evidence of account access, an executed run or improved real-world quality.
+
+## Sources
+
+- https://platform.claude.com/docs/en/agents-and-tools/agent-skills/claude-api-skill
+- https://platform.claude.com/docs/en/release-notes/overview
+- https://platform.claude.com/docs/en/managed-agents/multiagent-orchestration
+- https://platform.claude.com/docs/en/managed-agents/workflow-runs
