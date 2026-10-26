@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased — CI maintenance
+
+- Validate PR updates and pushes to main rather than every feature-branch push; cancel superseded validation runs while preserving current-head failures.
+- Document atomic multi-file commits to avoid incomplete version updates and duplicate CI notifications. Plugin/Skill content and versions are unchanged.
+
 ## 0.3.4 - 2026-10-26
 
 - Added guarded migration routing for Claude API version `2026-10-21` (October 21), including new SDK/`ant` CLI defaults, request validation and Bedrock compatibility cautions; no production migration or API test was performed.
