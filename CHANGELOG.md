@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.4 - 2026-10-26
+
+- Added guarded migration routing for Claude API version `2026-10-21` (October 21), including new SDK/`ant` CLI defaults, request validation and Bedrock compatibility cautions; no production migration or API test was performed.
+- Distinguished October 22's Anthropic-managed Claude Models on Google Cloud from Google-managed Claude, including IAM/OAuth versus API-key authentication, billing, client routing and account-access caveats.
+- Re-checked the official October 26 model lineup, base/cache pricing and Sonnet 4.5 retirement schedule; no model replacements or pricing changes were made. Source-watch fingerprints remain review signals, not proof of changed behavior.
+- No `sources/manifest.json` fetch_url, eval-case, marketplace name, Skill name or bootstrap change; plugin/Skill versions aligned. No paid model calls, account plugin installation/sync, or task-craft effectiveness evaluation.
+
 ## 0.3.3 - 2026-10-12
 
 - Clarified Anthropic's staged chat/Cowork integration versus per-surface plugin and execution support; user/account rollout must be verified.
