@@ -1,6 +1,6 @@
 # Claude model selection
 
-Last verified: 2026-10-11
+Last verified: 2026-10-26
 
 Models change. Verify official documentation and the actual platform, provider, plan and account before recommending or pinning a model. This October 11, 2026 snapshot does not establish personal access or measured task quality.
 
@@ -23,6 +23,7 @@ All four have a documented **1M context window and 128K standard maximum output*
 - **Compatibility:** Opus 5.5 and Fable 5.1 do not permit disabling thinking, and forced tool selection may error. Sonnet 5.5 changes thinking and advisor-tool compatibility. Haiku 5.5 can reject earlier manual thinking budgets, non-default sampling settings, assistant prefills or legacy computer-tool types, and tokenizes some existing text differently. Read the model-specific migration guide before updating live applications; supported computer-tool versions vary by provider.
 - **Claude Code:** `opus`, `sonnet`, `haiku` and `fable` are provider-dependent aliases, not frozen model IDs. Some partner providers still resolve aliases to older versions. Check `/model`, your provider deployment and CLI version. At this verification, minimum Claude Code versions for Opus/Sonnet/Haiku 5.5 are respectively 2.1.280 / 2.1.284 / 2.1.293.
 - **Access and tests:** Published availability on Claude API/cloud platforms does not guarantee claude.ai, Cowork, region, plan or account access. Distinguish published specs, model availability for the account, successful requests and measured results. Query the Models API for applicable capability/limit metadata.
+- **Google Cloud route added October 22, 2026:** Anthropic-managed Claude Models on Google Cloud is separate from Google-managed Claude on Google Cloud. Its Anthropic-operated API uses Google Cloud IAM, Google Cloud Marketplace billing and the `AnthropicGoogleCloud` client, not the Google-managed Vertex client. Model IDs may match, but the authentication, capabilities, quotas and rollout must be checked for the specific route. This does **not** establish access for any Google project or Claude account.
 
 ## Sources
 
@@ -39,3 +40,4 @@ All four have a documented **1M context window and 128K standard maximum output*
 - https://platform.claude.com/docs/en/models/fable-5-1/migration-guide
 - https://code.claude.com/docs/en/model-config
 - https://platform.claude.com/docs/en/release-notes/overview
+- https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed
