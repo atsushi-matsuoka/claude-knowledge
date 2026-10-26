@@ -1,8 +1,14 @@
 name: validate
 
 on:
+  # Validate feature branches through PRs only; avoid duplicate push/PR runs.
   push:
+    branches: [main]
   pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read

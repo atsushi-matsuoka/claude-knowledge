@@ -21,3 +21,11 @@ This repository is a knowledge-and-workflow pack about the Claude ecosystem, not
 - Merge **only** if the exact PR head passed required CI, the diff and primary-source evidence were checked, there is no unresolved critical issue or conflicting work, and GitHub's required reviews/branch protections are satisfied. Do not self-approve, bypass protections or silently relax checks. Leave blocked/high-risk changes open and report why.
 - After merging, re-fetch `main` and the PR to verify merge commit/actual content. A successful merge updates the GitHub source/marketplace, **not** an installed Claude/Cowork/Claude Code or other account: verify distribution/installation separately and never claim unobserved rollout.
 - Do not initiate paid API/model evals, new authentications, account/plugin installation or deletion, or modifications outside this repository without separate explicit authorization.
+
+## Atomic changes and CI notifications
+
+- Prepare related files locally, run the required offline checks, then publish one coherent commit. In particular, update all version metadata and CHANGELOG entries together; do not publish them one file at a time.
+- When using the GitHub API, create all blobs and a single tree/commit before moving the feature-branch ref once. Avoid sequential Contents API writes for a multi-file change.
+- Validation runs for pull requests (including drafts) and pushes to `main`, not every unpublished feature-branch push. Open a PR only after the complete change passes local checks; batch follow-up fixes before each push. Do not use `[skip ci]` or weaken tests to suppress alerts.
+- A new commit supersedes an older validation run for the same PR/ref. Real failures on the current PR head and merged `main` still fail normally. Source-watch scheduling and failure reporting remain enabled.
+- Check CI for the exact final PR head before any separately authorized merge. GitHub notification subscriptions are not changed by this policy.
