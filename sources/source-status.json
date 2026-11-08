@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T06:33:20.677006+00:00",
+  "generated_at": "2026-11-08T06:26:12.942975+00:00",
   "sources": {
     "anthropic-agent-skills-overview": {
       "ok": true,
@@ -7,8 +7,8 @@
       "final_url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview.md",
       "etag": null,
       "last_modified": null,
-      "sha256": "bc3569d91543f9fa984f799a6bdb72a44c0bc820f35e1485d9cf185a0e584d5b",
-      "checked_at": "2026-11-01T06:33:20.677006+00:00",
+      "sha256": "a80504e0ad671fe94184191e6a554b5ea43142632df520a304e09a10be0ac3b5",
+      "checked_at": "2026-11-08T06:26:12.942975+00:00",
       "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview"
     },
     "anthropic-claude-api-skill": {
@@ -18,7 +18,7 @@
       "etag": null,
       "last_modified": null,
       "sha256": "f9c905e0b3da363cb2ecc704eb68b81be1c40c05ccb23908c5cb16645ce98d36",
-      "checked_at": "2026-11-01T06:33:20.677006+00:00",
+      "checked_at": "2026-11-08T06:26:12.942975+00:00",
       "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/claude-api-skill"
     },
     "anthropic-claude-code-features": {
@@ -26,9 +26,9 @@
       "status": 200,
       "final_url": "https://code.claude.com/docs/en/features-overview.md",
       "etag": null,
-      "last_modified": "Sat, 31 Oct 2026 18:18:40 GMT",
+      "last_modified": "Sat, 07 Nov 2026 19:45:14 GMT",
       "sha256": "6f0ba3d99043bb5a630d2d5e5ae2ffe1bad7b8a58d0870d87c10116113d535ce",
-      "checked_at": "2026-11-01T06:33:20.677006+00:00",
+      "checked_at": "2026-11-08T06:26:12.942975+00:00",
       "url": "https://code.claude.com/docs/en/features-overview"
     },
     "anthropic-claude-directory": {
@@ -36,29 +36,29 @@
       "status": 200,
       "final_url": "https://code.claude.com/docs/en/claude-directory.md",
       "etag": null,
-      "last_modified": "Sat, 31 Oct 2026 18:22:41 GMT",
-      "sha256": "059a46d2e53901393ca84525004cddaf37368d29e5bae0e02f9ee2fa3a10a97c",
-      "checked_at": "2026-11-01T06:33:20.677006+00:00",
+      "last_modified": "Sat, 07 Nov 2026 19:45:05 GMT",
+      "sha256": "56f567fb80b95accf5f6a35191320ca460783d39073bb1105af88ec569e6d466",
+      "checked_at": "2026-11-08T06:26:12.942975+00:00",
       "url": "https://code.claude.com/docs/en/claude-directory"
     },
     "openai-build-skills": {
       "ok": true,
       "status": 200,
       "final_url": "https://learn.chatgpt.com/docs/build-skills",
-      "etag": "\"03d44a8607d283fca8eb53a09a63bcc2\"",
-      "last_modified": "Sun, 01 Nov 2026 04:07:20 GMT",
-      "sha256": "6c89f218f2ea7d50b047407f1bc4c0e2ea18d52fe10ba44ad8fee877b5470bd4",
-      "checked_at": "2026-11-01T06:33:20.677006+00:00",
+      "etag": "\"6465369d297d96b1edab0c101cc6c271\"",
+      "last_modified": "Sun, 08 Nov 2026 02:04:40 GMT",
+      "sha256": "7ff99d429ec173d1a3016cc77948891d81553eda59db5a93def56d5cee4d87b6",
+      "checked_at": "2026-11-08T06:26:12.942975+00:00",
       "url": "https://learn.chatgpt.com/docs/build-skills"
     },
     "openai-astra-skills-guidance": {
       "ok": true,
       "status": 200,
       "final_url": "https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra",
-      "etag": "\"8474a2ce4f71e15a9c7197768ce7e4c7\"",
-      "last_modified": "Sun, 01 Nov 2026 04:10:04 GMT",
-      "sha256": "e3574186773b28bf49c3ea5d235fdfc08c3f1383b7099d8b1b6e62e52a8bdb7f",
-      "checked_at": "2026-11-01T06:33:20.677006+00:00",
+      "etag": "\"3cd690e6a300bfb0b2ad53de0f2315a0\"",
+      "last_modified": "Sun, 08 Nov 2026 02:05:49 GMT",
+      "sha256": "2df349e284c51c00e14cad0dd167c6f1374e1e13f0ff5920f33de08aa796771e",
+      "checked_at": "2026-11-08T06:26:12.942975+00:00",
       "url": "https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra"
     },
     "google-gemini-skills": {
@@ -68,7 +68,7 @@
       "etag": "\"5b98b50503e4efb2a4c5333fde5c40eb687b66f7e9876b278406e6c58f1b484d\"",
       "last_modified": null,
       "sha256": "497015ba4b248d53e830ac4d4388160d72d3051630d9db227787703dc7c58276",
-      "checked_at": "2026-11-01T06:33:20.677006+00:00",
+      "checked_at": "2026-11-08T06:26:12.942975+00:00",
       "url": "https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/skills.md"
     },
     "google-gemini-context": {
@@ -78,7 +78,7 @@
       "etag": "\"cb5d775fcdf0232091d825d08938a9b94ad228c1624add27c8200e3e4d421808\"",
       "last_modified": null,
       "sha256": "3563c86c9aa7345c88a339c00af6bc17b12a62d95e36d2b54963fdaf07fcade3",
-      "checked_at": "2026-11-01T06:33:20.677006+00:00",
+      "checked_at": "2026-11-08T06:26:12.942975+00:00",
       "url": "https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/gemini-md.md"
     },
     "anthropic-claude-code-skills": {
@@ -86,9 +86,9 @@
       "status": 200,
       "final_url": "https://code.claude.com/docs/en/skills.md",
       "etag": null,
-      "last_modified": "Sat, 31 Oct 2026 18:20:03 GMT",
-      "sha256": "8ac4e5919b4e1d10d05d48918ef7b7863a50877e25e9e8598b80946cd6bb9d61",
-      "checked_at": "2026-11-01T06:33:20.677006+00:00",
+      "last_modified": "Sat, 07 Nov 2026 19:45:04 GMT",
+      "sha256": "a9046170eb1150b4b97017812ca1c70a0c507ac85624fcd598fa23dfa1450379",
+      "checked_at": "2026-11-08T06:26:12.942975+00:00",
       "url": "https://code.claude.com/docs/en/skills"
     },
     "anthropic-claude-code-memory": {
@@ -96,9 +96,9 @@
       "status": 200,
       "final_url": "https://code.claude.com/docs/en/memory.md",
       "etag": null,
-      "last_modified": "Sat, 31 Oct 2026 18:18:11 GMT",
-      "sha256": "027ae0822862050397e298fba2c63a7a2604845858633db52dc8071e46505de0",
-      "checked_at": "2026-11-01T06:33:20.677006+00:00",
+      "last_modified": "Sat, 07 Nov 2026 19:45:04 GMT",
+      "sha256": "b4f483c895f4b42c84cc5855b78b11cbf285b833483461a5b6a9673a143cb35c",
+      "checked_at": "2026-11-08T06:26:12.942975+00:00",
       "url": "https://code.claude.com/docs/en/memory"
     },
     "anthropic-plugin-platform-support": {
@@ -106,9 +106,9 @@
       "status": 200,
       "final_url": "https://claude.com/docs/plugins/platform-support.md",
       "etag": null,
-      "last_modified": null,
+      "last_modified": "Sat, 07 Nov 2026 20:24:19 GMT",
       "sha256": "e18e42c9f49862f0ffc3ab434bb9f9ab443edb96ba671b9a89413d7e45cd8f69",
-      "checked_at": "2026-11-01T06:33:20.677006+00:00",
+      "checked_at": "2026-11-08T06:26:12.942975+00:00",
       "url": "https://claude.com/docs/plugins/platform-support"
     },
     "anthropic-plugin-evals": {
@@ -116,9 +116,9 @@
       "status": 200,
       "final_url": "https://code.claude.com/docs/en/plugin-evals.md",
       "etag": null,
-      "last_modified": "Sat, 31 Oct 2026 18:21:48 GMT",
+      "last_modified": "Sat, 07 Nov 2026 19:45:08 GMT",
       "sha256": "6c226862b66e610fede3305a60293031b690717e4231e82c7a04c3e2a29c9a8f",
-      "checked_at": "2026-11-01T06:33:20.677006+00:00",
+      "checked_at": "2026-11-08T06:26:12.942975+00:00",
       "url": "https://code.claude.com/docs/en/plugin-evals"
     },
     "anthropic-plugin-marketplaces": {
@@ -126,9 +126,9 @@
       "status": 200,
       "final_url": "https://code.claude.com/docs/en/plugins/create-marketplace.md",
       "etag": null,
-      "last_modified": "Sat, 31 Oct 2026 18:22:42 GMT",
+      "last_modified": "Sat, 07 Nov 2026 19:45:11 GMT",
       "sha256": "1ccebd7298c6d872f383d59e207e09bc9157e9b3fad1097271033f623d719087",
-      "checked_at": "2026-11-01T06:33:20.677006+00:00",
+      "checked_at": "2026-11-08T06:26:12.942975+00:00",
       "url": "https://code.claude.com/docs/en/plugins/create-marketplace"
     },
     "anthropic-agent-skills-best-practices": {
@@ -138,7 +138,7 @@
       "etag": null,
       "last_modified": null,
       "sha256": "d3ac462f1a9ca93a02239bb49f81082c3d084f595f73c7069d6f09bf4c579303",
-      "checked_at": "2026-11-01T06:33:20.677006+00:00",
+      "checked_at": "2026-11-08T06:26:12.942975+00:00",
       "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices"
     },
     "anthropic-models-overview": {
@@ -148,7 +148,7 @@
       "etag": null,
       "last_modified": null,
       "sha256": "34b61d1753bc86e1e034d45a08f5ef83530bcd5fda8bc6d6b9ce8212b83ce8a8",
-      "checked_at": "2026-11-01T06:33:20.677006+00:00",
+      "checked_at": "2026-11-08T06:26:12.942975+00:00",
       "url": "https://platform.claude.com/docs/en/about-claude/models/overview"
     },
     "anthropic-pricing": {
@@ -157,8 +157,8 @@
       "final_url": "https://platform.claude.com/docs/en/about-claude/pricing.md",
       "etag": null,
       "last_modified": null,
-      "sha256": "d4a58d70d9a5b133a31e737e19d9e484d9d589bfb168577329c9924b5f11fd9d",
-      "checked_at": "2026-11-01T06:33:20.677006+00:00",
+      "sha256": "8197c078e3861fd3a4d9a75127a65896ed0feb338cfa8732ff0a9baae676f4b8",
+      "checked_at": "2026-11-08T06:26:12.942975+00:00",
       "url": "https://platform.claude.com/docs/en/about-claude/pricing"
     },
     "anthropic-prompt-overview": {
@@ -168,7 +168,7 @@
       "etag": null,
       "last_modified": null,
       "sha256": "2e3162f78c6d4f14571cc60f24a9bb6c9fe159d25a366a3c25f0fa7f615bbde0",
-      "checked_at": "2026-11-01T06:33:20.677006+00:00",
+      "checked_at": "2026-11-08T06:26:12.942975+00:00",
       "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview"
     },
     "anthropic-prompt-practices": {
@@ -177,8 +177,8 @@
       "final_url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices.md",
       "etag": null,
       "last_modified": null,
-      "sha256": "3291f607fd698cc83b7b38120ddc61cce6db403887b306216a671dfbb4a8d306",
-      "checked_at": "2026-11-01T06:33:20.677006+00:00",
+      "sha256": "56a2b1357ad96a45d2377424599204db7ca3e5f80ab012dce3b60ec460810a4c",
+      "checked_at": "2026-11-08T06:26:12.942975+00:00",
       "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
     },
     "anthropic-develop-tests": {
@@ -188,7 +188,7 @@
       "etag": null,
       "last_modified": null,
       "sha256": "761285a32763bdd55761a2b5f046c8d661f4aa6e3bc4198f1efb4750ec75079b",
-      "checked_at": "2026-11-01T06:33:20.677006+00:00",
+      "checked_at": "2026-11-08T06:26:12.942975+00:00",
       "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
     },
     "anthropic-effective-agents": {
@@ -197,8 +197,8 @@
       "final_url": "https://www.anthropic.com/research/building-effective-agents",
       "etag": null,
       "last_modified": null,
-      "sha256": "bd6ca5705024f9d9be29c9fbf6438fa2b19d7214f75afcab90f9800a0ac68bad",
-      "checked_at": "2026-11-01T06:33:20.677006+00:00",
+      "sha256": "03301c461a5cba309986eaaa3a8c81f8656db5b63c9d43f20bb6abf71a4e84b1",
+      "checked_at": "2026-11-08T06:26:12.942975+00:00",
       "url": "https://www.anthropic.com/engineering/building-effective-agents"
     },
     "anthropic-context-engineering": {
@@ -207,8 +207,8 @@
       "final_url": "https://www.anthropic.com/research/effective-context-engineering-for-ai-agents",
       "etag": null,
       "last_modified": null,
-      "sha256": "8869e0fd70427633269a112a16895d036dd027a96c827aa3b59d517a02c9c4dc",
-      "checked_at": "2026-11-01T06:33:20.677006+00:00",
+      "sha256": "3dbcd9883e695b3e027b10f823ba411b9f4aca6c3876a2b7549bd2f82f9a4892",
+      "checked_at": "2026-11-08T06:26:12.942975+00:00",
       "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
     },
     "anthropic-agent-evaluation": {
@@ -217,8 +217,8 @@
       "final_url": "https://www.anthropic.com/research/demystifying-evals-for-ai-agents",
       "etag": null,
       "last_modified": null,
-      "sha256": "60d4b261c0146da85cad3fa193858aede0a9d6c7f871efc6753097d877c963cf",
-      "checked_at": "2026-11-01T06:33:20.677006+00:00",
+      "sha256": "05fcbc827de2313b555eb8139d66bd2b322d495740c86ac9c4956925f8c23ffe",
+      "checked_at": "2026-11-08T06:26:12.942975+00:00",
       "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
     },
     "anthropic-course-prompt-process": {
@@ -228,7 +228,7 @@
       "etag": "\"c429dac8a04c9dae5224ea0b61bdc80b975e4c8894e588dc15d78966ccbe63eb\"",
       "last_modified": null,
       "sha256": "7f751188a108a4744556a46b891ec6db7c990bc7f4280f6b166de7e1f5e8429f",
-      "checked_at": "2026-11-01T06:33:20.677006+00:00",
+      "checked_at": "2026-11-08T06:26:12.942975+00:00",
       "url": "https://github.com/anthropics/courses/blob/master/real_world_prompting/03_prompt_engineering.ipynb"
     }
   }
