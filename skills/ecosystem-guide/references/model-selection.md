@@ -1,6 +1,6 @@
 # Claude model selection
 
-Last verified: 2026-10-26
+Last verified: 2026-11-09
 
 Models change. Verify official documentation and the actual platform, provider, plan and account before recommending or pinning a model. This October 11, 2026 snapshot does not establish personal access or measured task quality.
 
@@ -18,6 +18,8 @@ All four have a documented **1M context window and 128K standard maximum output*
 **Haiku 5.5 has two pricing tiers.** Prompts of at most 100K tokens are $0.10 input / $0.50 output per million; for prompts over 100K, the whole request is billed at $0.50 / $2.50, including cached prompt tokens. Cache reads per million are Fable 5.1 $0.25, Opus 5.5 $0.20, Sonnet 5.5 $0.10 and Haiku 5.5 $0.01 (or $0.05 above 100K). Check official pricing for cache writes, batching, fast mode, geography and provider differences.
 
 ## Migration and product-surface caveats
+
+- **Fast-mode deadline (November 30, 2026):** Fast mode on Claude Opus 4.8 was deprecated October 30 and is scheduled for removal November 30. Requests to `claude-opus-4-8` with `speed: "fast"` will fail after removal. Migrate fast-mode usage to a supported route such as Opus 5.5 after checking beta headers, product/provider support, premium pricing and real latency/cost; **this is a fast-mode retirement, not proof that all Opus 4.8 API access ends that day**. Test the requested model and whether `usage.speed` actually shows fast execution.
 
 - **Deadline:** `claude-sonnet-4-5-20250929` was deprecated September 30, 2026 and retires **November 30, 2026** on Anthropic-operated platforms. Its recommended replacement is `claude-sonnet-5-5`. Bedrock and Google Cloud set independent retirement dates. Haiku 4.5 is still listed as active.
 - **Compatibility:** Opus 5.5 and Fable 5.1 do not permit disabling thinking, and forced tool selection may error. Sonnet 5.5 changes thinking and advisor-tool compatibility. Haiku 5.5 can reject earlier manual thinking budgets, non-default sampling settings, assistant prefills or legacy computer-tool types, and tokenizes some existing text differently. Read the model-specific migration guide before updating live applications; supported computer-tool versions vary by provider.
@@ -41,3 +43,4 @@ All four have a documented **1M context window and 128K standard maximum output*
 - https://code.claude.com/docs/en/model-config
 - https://platform.claude.com/docs/en/release-notes/overview
 - https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed
+- https://platform.claude.com/docs/en/build-with-claude/fast-mode
