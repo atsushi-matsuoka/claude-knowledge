@@ -1,9 +1,13 @@
 # Changelog
 
-## Unreleased — CI maintenance
+## 0.3.5 - 2026-11-09
 
-- Validate PR updates and pushes to main rather than every feature-branch push; cancel superseded validation runs while preserving current-head failures.
-- Document atomic multi-file commits to avoid incomplete version updates and duplicate CI notifications. Plugin/Skill content and versions are unchanged.
+- Captured November 2 Messages API message threads beta: short-lived server-side state, replay/expiration behavior, incompatible features, and **non-ZDR / non-HIPAA** status.
+- Recorded October 29 Usage and Cost Analytics API beta, November 5 organization IP allowlisting and Enterprise sign-out beta, and November 3 model/platform-dependent text watermarking with sampling caveats.
+- Added the November 30, 2026 retirement of **Opus 4.8 fast mode**, distinguishing it from full model retirement; current primary model lineup was rechecked without replacing models.
+- Captured Claude Code 2.1.319's terminal MCP task/background control and permission-denial setting without claiming installed CLI support.
+- Included already-merged CI maintenance: validation on PRs/main, superseded-run cancellation, and guidance to create coherent atomic commits rather than per-file version updates.
+- No source manifest URL or eval-case changes. Plugin and both Skill versions aligned. No paid model calls, account installation/sync, or task-craft effectiveness evaluation.
 
 ## 0.3.4 - 2026-10-26
 

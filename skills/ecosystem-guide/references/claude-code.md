@@ -1,6 +1,14 @@
 # Claude Code: where guidance belongs
 
-Last verified: 2026-09-26
+Last verified: 2026-11-09
+
+## Recent Claude Code release: 2.1.319 (November 6, 2026)
+
+The earlier placement/size guidance below was not fully re-audited during this update.
+
+- Terminal Claude Code can now move MCP *task* calls to the background, reporting the result when complete. Set `CLAUDE_CODE_DISABLE_MCP_TASK_BACKGROUND` when a workflow needs to await those task calls. This is specific to supported task-style MCP execution; do not generalize to every MCP server or Claude surface.
+- The new `permissions.denyInsteadOfPrompting` setting denies tool calls that would otherwise wait for a permission prompt and allows the turn to continue. It applies in terminal sessions, subagents and teammates; it is **not permission escalation**. Check the locally installed Claude Code version before relying on this behavior.
+- Current release notes are not proof the local CLI has updated: check `claude --version`, then the applicable change log before prescribing new settings.
 
 ## Placement
 
@@ -37,3 +45,4 @@ Guidance in `CLAUDE.md` is advisory context. To block an action regardless of wh
 - https://code.claude.com/docs/en/features-overview
 - https://code.claude.com/docs/en/memory
 - https://code.claude.com/docs/en/skills
+- https://code.claude.com/docs/en/changelog
