@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.6 - 2026-11-23
+
+- Replaced the stale current Fable 5.1 routing entry with the November 9 Claude Fable 5.2 release; distinguished verified-only Mythos 5.2, $8/$40 token pricing, $0.20 cache reads, ZDR/30-day retention restrictions, prefix/thinking-block compatibility, computer-tool/advisor constraints, and research-biology safeguard fallbacks.
+- Documented November 17 Linked billing beta eligibility and customer-data-contract boundaries, and November 12 self-hosted Claude Managed Agents service versus self-hosted sandboxes. Updated model/platform-specific text-watermark coverage.
+- Added November 20 Claude Code 2.1.330 guidance for Enterprise-managed sign-in, scheduled-task lifetime and plugin JSON verification without treating a changelog as proof of installation.
+- Did not alter source manifest URLs, source-status baselines or eval case schema; no paid model eval, account installation, API call, or measured effectiveness claim. Updated both Skill metadata versions and plugin package to 0.3.6.
+
+
 ## 0.3.5 - 2026-11-09
 
 - Captured November 2 Messages API message threads beta: short-lived server-side state, replay/expiration behavior, incompatible features, and **non-ZDR / non-HIPAA** status.

@@ -1,8 +1,15 @@
 # Claude Code: where guidance belongs
 
-Last verified: 2026-11-09
+Last verified: 2026-11-23
 
-## Recent Claude Code release: 2.1.319 (November 6, 2026)
+## Claude Code release 2.1.330 (November 20, 2026)
+
+- Enterprise Admin Console-managed organizations can sign in through `claude auth login`, after which Claude Code applies organization settings and uses its configured provider/gateway. Do not infer the user's account has this entitlement.
+- Recurring scheduled tasks and `/loop` can now run for up to **30 days while the session continues**, rather than seven; tasks created **before** this release still end at seven days. This is not a promise that a shut-down session or computer will keep working.
+- `claude plugin install --json` now reports `commandPrinted` and `commandFailed`; inspect the exit status and errors instead of treating an attempted plugin install as success.
+- Claude Code 2.1.330 also corrects a plugin-install race and makes changes to permission prompts; confirm the locally installed `claude --version` before depending on the new behavior.
+
+## Earlier Claude Code release: 2.1.319 (November 6, 2026)
 
 The earlier placement/size guidance below was not fully re-audited during this update.
 

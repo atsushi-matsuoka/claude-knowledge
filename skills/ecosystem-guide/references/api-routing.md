@@ -1,6 +1,6 @@
 # Claude API routing
 
-Last verified: 2026-11-09
+Last verified: 2026-11-23
 
 For Claude API/SDK implementation, prefer current first-party references and Anthropic's official `claude-api` Agent Skill when it is available. That official skill is designed to supply up-to-date API reference material and language-specific SDK guidance.
 
@@ -28,7 +28,15 @@ Released November 2: **message threads** are a Messages API feature, not Claude 
 
 - October 29: the **Usage and Cost Analytics API** is a beta for Claude Console and Claude Enterprise organizations (header `analytics-usage-cost-2026-08-24`). It can group spend and requests by model, workspace or actor. Earlier Usage and Cost / Enterprise report APIs are **legacy but still supported**; migrate only when the dimensions or reporting format justify it. Admin API permissions and Enterprise analytics scopes differ.
 - November 5: organization **IP allowlisting** is in beta. Console and Enterprise cover different endpoints and apps; cloud-hosted offerings such as Bedrock, Claude Platform on AWS and Google Cloud are not covered by this Claude Console allowlist. Restricting IPs can lock out owners, workers and mobile users. Plan allowed egress ranges and an admin recovery path before enabling it. The Admin API can also sign out Enterprise members everywhere (beta), but this does not remove their membership. No organization security settings were changed here.
-- November 3: Anthropic introduced **text watermarking** on specified model/platform combinations. The watermark is not an extra visible token; on Sonnet 4.6, non-default sampling parameters can affect whether it is present. Check the exact coverage list and do not infer that every response is watermarked.
+- November 3 / expanded November 16: Anthropic documented **text watermarking** for specified model/platform combinations; the November 16 list includes Opus 4.6, Opus 4.5, Sonnet 4.5, and Haiku 4.5 on supported platforms. Non-default sampling settings can affect its presence. This is not a universal watermark guarantee for all Claude models or responses.
+
+## Linked billing beta (November 17, 2026)
+
+Claude Platform OAuth's **Linked billing** beta uses `user-profiles-billing-2026-10-01` and `billing_policy` in supported Messages / Chat Completions requests so an eligible customer can pay through their linked Claude Platform organization. The customer must pay Anthropic directly for API usage; subscription-only customers and organizations billed through cloud marketplaces are **not eligible**. Requests still run with the app owner's organization rate limits, model access and data retention; a customer's ZDR/BAA/CMEK terms do **not** carry over. Customer-billed Messages cannot use billable code execution, and Message Batches do not support customer billing. Never silently switch payers, connect an organization, or claim HIPAA coverage without explicit authorization and end-to-end tests.
+
+## Self-hosted Managed Agents (November 12, 2026)
+
+Anthropic now documents a **self-hosted Managed Agents service** in addition to self-hosted sandboxes. With the service option, an organization runs its own API, agent loop, storage, workers and sandboxes; model inference remains at Anthropic or another configured provider. This is not local/offline inference and not the same as hosted Managed Agents with merely self-hosted tool sandboxes. It requires infrastructure/security operations, a compatible deployment and access coordinated through an Anthropic account team. Check supported features and differences before recommending it for restricted data.
 
 ## Managed Agents are a separate Platform surface
 
@@ -48,3 +56,5 @@ For independent work that merits orchestration, set a session budget before runn
 - https://platform.claude.com/docs/en/manage-claude/usage-cost-analytics-api
 - https://platform.claude.com/docs/en/manage-claude/ip-allowlist
 - https://platform.claude.com/docs/en/build-with-claude/text-watermark
+- https://platform.claude.com/docs/en/manage-claude/oauth-apps/organization-billing-connections
+- https://platform.claude.com/docs/en/managed-agents/self-hosted
