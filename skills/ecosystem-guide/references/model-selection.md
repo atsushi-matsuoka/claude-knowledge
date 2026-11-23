@@ -1,21 +1,29 @@
 # Claude model selection
 
-Last verified: 2026-11-09
+Last verified: 2026-11-23
 
-Models change. Verify official documentation and the actual platform, provider, plan and account before recommending or pinning a model. This October 11, 2026 snapshot does not establish personal access or measured task quality.
+Models change. Verify official documentation and the actual platform, provider, plan and account before recommending or pinning a model. This November 23, 2026 snapshot does not establish personal access, applicable retention terms, or measured task quality.
 
-## Current Claude API lineup (October 11, 2026 JST)
+## Current published Claude API lineup (November 23, 2026 JST)
 
 | Model and release | API ID | Base USD / million input-output tokens | Thinking / default effort |
 | --- | --- | --- | --- |
-| Fable 5.1, Sep 1 | `claude-fable-5-1` | $10 / $50 | Adaptive always on / high |
+| Fable 5.2, Nov 9 | `claude-fable-5-2` | $8 / $40 | Adaptive always on / high |
 | Opus 5.5, Sep 22 | `claude-opus-5-5` | $4 / $20 | Adaptive always on / medium |
 | Sonnet 5.5, Sep 28 | `claude-sonnet-5-5` | $2 / $10 | Adaptive / high |
 | Haiku 5.5, Oct 7 | `claude-haiku-5-5` | From $0.10 / $0.50 | Adaptive / medium |
 
-All four have a documented **1M context window and 128K standard maximum output**. Anthropic suggests Opus 5.5 for most workloads; evaluate Fable 5.1 for demanding reasoning/long agent runs, Sonnet 5.5 for faster everyday work and Haiku 5.5 for high-volume and latency-sensitive tasks. Prefer the least expensive model that meets **tested** quality, latency and reliability goals. Older models may remain useful.
+All four have a documented **1M context window and 128K standard maximum output**. Anthropic suggests Opus 5.5 for most workloads; evaluate Fable 5.2 for demanding reasoning/long agent runs when Opus 5.5 at higher effort fails task-specific evals, Sonnet 5.5 for faster everyday work and Haiku 5.5 for high-volume and latency-sensitive tasks. Prefer the least expensive model that meets **tested** quality, latency and reliability goals. Older models may remain useful.
 
-**Haiku 5.5 has two pricing tiers.** Prompts of at most 100K tokens are $0.10 input / $0.50 output per million; for prompts over 100K, the whole request is billed at $0.50 / $2.50, including cached prompt tokens. Cache reads per million are Fable 5.1 $0.25, Opus 5.5 $0.20, Sonnet 5.5 $0.10 and Haiku 5.5 $0.01 (or $0.05 above 100K). Check official pricing for cache writes, batching, fast mode, geography and provider differences.
+**Haiku 5.5 has two pricing tiers.** Prompts of at most 100K tokens are $0.10 input / $0.50 output per million; for prompts over 100K, the whole request is billed at $0.50 / $2.50, including cached prompt tokens. Cache reads per million are Fable 5.2 $0.20, Opus 5.5 $0.20, Sonnet 5.5 $0.10 and Haiku 5.5 $0.01 (or $0.05 above 100K). Fable 5.1 remains listed as a legacy model ($10/$50 input/output and $0.25 cache reads); it is not deleted solely due to age. Check official pricing for cache writes, batching, fast mode, geography and provider differences.
+
+## Fable 5.2 / Mythos 5.2 rollout and migration (November 9, 2026)
+
+- **Two distinct access routes:** Fable 5.2 (`claude-fable-5-2`) is the published general model; Mythos 5.2 (`claude-mythos-5-2`) shares its core specs and $8/$40 pricing but requires verification through an Anthropic program. Publication is not approval for a specific organization, user, region or Claude surface. Do not route ordinary users automatically to Mythos.
+- **Retention is an eligibility gate:** Fable 5.2 and Mythos 5.2 require **30-day retention** and are not available under zero data retention (ZDR) unless Anthropic explicitly authorizes it. A Claude API workspace lacking the required retention returns HTTP 400. They are also not supported on Priority Tier. Never infer patient/organization-restricted data is permitted just from published model availability.
+- **Thinking/prefix integrity:** Both enforce prefix binding for all accounts. Reusing later-turn thinking blocks after modifying an earlier `system` prompt, tool definition or message can return HTTP 400. They can read older models' thinking blocks on the Claude API and Google-managed Claude on Google Cloud, but other models cannot read Fable/Mythos 5.2 thinking blocks. Across accounts, those blocks can be dropped; preserve append-only histories and regression-test migrations and model fallbacks.
+- **Tool compatibility:** On most platforms `computer_20251124` is rejected; use `computer_toolset_20260801` (Amazon Bedrock retains an exception). For the beta advisor tool, a Fable 5.2 or Mythos 5.2 executor accepts only one of these models as advisor. Forced tool choices remain restricted. Validate each provider's actual support before switching.
+- **Safeguard behavior:** Anthropic reports that some cyber and research-biology prompts to Fable 5.2 may be handled by an older-model fallback under its safety safeguards. This does not imply an account can select Mythos, or that Fable 5.2 always executes the requested model. Inspect actual model information and evaluate task-specific behavior; do not assume a published benchmark transfers to biomedical workflows.
 
 ## Migration and product-surface caveats
 
@@ -30,6 +38,10 @@ All four have a documented **1M context window and 128K standard maximum output*
 ## Sources
 
 - https://platform.claude.com/docs/en/models/overview
+- https://platform.claude.com/docs/en/models/fable-5-2/overview
+- https://platform.claude.com/docs/en/models/mythos-5-2/overview
+- https://platform.claude.com/docs/en/models/fable-5-2/migration-guide
+- https://www.anthropic.com/claude-fable-and-mythos-5-2
 - https://platform.claude.com/docs/en/models/fable-5-1/overview
 - https://platform.claude.com/docs/en/models/opus-5-5/overview
 - https://platform.claude.com/docs/en/models/sonnet-5-5/overview
